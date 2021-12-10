@@ -1,0 +1,67 @@
+html{
+    font-size: 9px;
+}
+/* our-actions */
+
+#our-actions{
+    .actions{
+        flex-direction: column;
+        align-items: center;
+      
+    }
+}
+
+/* books card */
+
+
+
+/* book show  */
+
+#book-show{
+
+    .book-show{
+        
+        &-first{
+            width: 20rem;
+            height: 30rem;
+        }
+        &-second, &-third{
+            width: 100%;
+        }
+    }
+}
+
+/* personal cabinet */
+
+#personal-cabinet{
+
+    .img-place{
+     
+    }
+    .username-place{
+        width: 24rem;
+        font-size: 3rem;
+    }
+    .bio-place{
+        width: 100%;
+    }
+}
+
+//  sign in forget password
+
+.forget-password{
+
+    form{
+        .input-container{
+            width: 25rem;    
+        }
+    }
+}
+
+.add-book-btn{
+    display: flex;
+}
+
+.header-add-book{
+    display: none;
+}

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Scss/layout.css">
+    <link rel="stylesheet" href="../Scss/campaign.css">
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- tablet style -->
+    <link rel="stylesheet" media = "(max-width: 992px)" href="../Scss/tablet.css"> 
+    <!-- mobile style -->
+    <link rel="stylesheet" media = "(max-width: 576px)" href="../Scss/mobile.css">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="burger-menu-container">
+        <div class="burger-menu-bg" onclick = "showBurgerMenu()"></div>
+        <ul class="list-group h3 bg-white text-center burger-menu">
+            <li class="list-group-item text-center font-weight-bold text-white bg-dark position-relative">
+                MENU 
+                <img src="../Icons/close.svg" alt="" class = "close-burger-menu cursor-pointer position-absolute" onclick = "showBurgerMenu()">
+            </li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../index.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Ana Səhifə</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/insert-book.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Kitab yerləşdir</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/favorites.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Bəyəndiklərim</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/personal-cabinet.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Şəxsi Kabinet</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/about-us.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Haqqımızda</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/help.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Yardım</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/contact.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Əlaqə</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/sign-in.html" class = "btn btn-outline-success py-3 w-100 h-100 d-flex justify-content-center" style = "font-size: 1.75rem;">Daxil ol</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/sign-up.html" class = "btn btn-outline-danger py-3 w-100 h-100 d-flex justify-content-center" style = "font-size: 1.75rem;">Qeydiyyat</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/sign-in.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Çıxış et</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/place-add.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Saytda Reklam Verin</a></li>
+            <li class="list-group-item text-center cursor-pointer border">
+                Dəstək üçün bizi paylaşın             
+                <div class="text-center">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://buybookapp.herokuapp.com/" class = "sosial-media-icon"><img src="../Icons/facebook.png" alt=""></a>
+                    <a href="https://twitter.com/home?status=https://buybookapp.herokuapp.com/" class = "sosial-media-icon"><img src="../Icons/twitter.png" alt=""></a>
+                    <a href="#" class = "sosial-media-icon"><img src="../Icons/instagram.png" alt=""></a>
+                    <a href="https://wa.me/?text=buybookapp.herokuapp.com/" class = "sosial-media-icon"><img src="../Icons/whatsapp.png" alt=""></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="container-xl pb-5 mb-5">
+        <!-- header -->
+        <section class="header">
+            <nav class = "d-flex flex-wrap flex-lg-nowrap mb-5 mb-lg-0">
+                <!-- menu and logo -->
+                <div class="nav-one d-flex justify-content-start">   
+                    <div class="menu">
+                        <img src="../Icons/menu.svg" alt="" class = "icons-style cursor-pointer" onclick = "showBurgerMenu()">
+                    </div>
+                    <div class="logo">
+                        <a href = "../index.html"><img src="../Icons/logo.png" class = "ml-3" alt=""></a>
+                    </div>
+                </div>
+
+
+                <!-- user and shop -->
+                <div class="nav-three d-flex justify-content-end">
+                    <a href = "../Pages/insert-book.html" class="btn btn-danger p-2 mr-2">Kitab yerləşdir</a>
+                    
+                    
+                    <a href = "../Pages/personal-cabinet.html" class = "cursor-pointer icons-style mr-2"><img src="../Icons/person.svg" class = "icons-style alt=""></a>
+                    <a href = "../Pages/favorites.html" class="cursor-pointer"><img src="../Icons/favorite.svg"style = "width: 2.5rem;" alt=""></a>
+                </div>
+            </nav>
+        </section>
+        <!-- header  end-->
+
+        <div class="compaign">
+            <h1 class="h1 display-4 font-weight-bolder text-danger text-center p-4 mb-5 mb-md-3">Bookavid Endirim Kartı</h1>
+            <div class = "compaign-container mt-5 pt-5">
+                <table class="table compaign-table">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Kitab evi</th>
+                            <th scope="col">Endirim faizi</th>
+                            <th scope="col">Ünvan</th>
+                            <th scope="col">Əlaqə</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>NOVELLA KITAB EVI</td>
+                            <td>20%</td>
+                            <td>Novella kitab evi, Baku, Azerbaijan, 1110</td>
+                            <td class = "contact-container">
+                                <a href="tel:070-200-71-33">
+                                    <img src="../Icons/phone.png" alt="" class = "contact-icon">
+                                </a>
+
+                                
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>VOVI BOOK SHOP</td>
+                            <td>10%</td>
+                            <td></td>
+                            <td class = "contact-container">
+                                <a href="https://instagram.com/vovi__bookshop?igshid=13hvs02gjywk0">
+                                    <img src="../Icons/instagram.png" alt="" class = "contact-icon">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>DUSUNCELER KITAB EVI: </td>
+                            <td>15-20%</td>
+                            <td></td>
+                            <td class = "contact-container">
+                                <a href="tel:055-698-01-54">
+                                    <img src="../Icons/phone.png" alt="" class = "contact-icon">
+                                </a>
+                                <a href="https://instagram.com/dusunceler_kitab_evi?igshid=z5vpjgqh41js">
+                                    <img src="../Icons/instagram.png" alt="" class = "contact-icon">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">4</th>
+                            <td>BERMUD KITAB EVI</td>
+                            <td>15%</td>
+                            <td>Elmlər akademiyası m. yaxınlığı</td>
+                            <td class = "contact-container">
+                                <a href="tel:055-884-49-09">
+                                    <img src="../Icons/phone.png" alt="" class = "contact-icon">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">5</th>
+                            <td>OXUMALI KITAB EVI</td>
+                            <td>15%</td>
+                            <td>N.Nərimanov F.Xosyki küçə 151</td>
+                            <td class = "contact-container">
+                                <a href="tel:050-253-20-23">
+                                    <img src="../Icons/phone.png" alt="" class = "contact-icon">
+                                </a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">6</th>
+                            <td>LIBERSHOP KITAB EVI</td>
+                            <td>turk ve ingilis kitablarina 15%</td>
+                            <td></td>
+                            <td class = "contact-container">
+                                <a href="tel:050-762-50-80">
+                                    <img src="../Icons/phone.png" alt="" class = "contact-icon">
+                                </a>
+                                <a href="https://instagram.com/libershop.az?igshid=lzchuj4cj17m">
+                                    <img src="../Icons/instagram.png" alt="" class = "contact-icon">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">7</th>
+                            <td>28 KECID KITAB EVI</td>
+                            <td>1 kitab 10% 2 kitab 15%</td>
+                            <td>Mərkəzi bankın qarşısı yeraltı keçid </td>
+                            <td class = "contact-container">
+                                <a href="tel:050-440-30-04">
+                                    <img src="../Icons/phone.png" alt="" class = "contact-icon">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">8</th>
+                            <td>KITAB EVI OXFORD</td>
+                            <td>15%</td>
+                            <td>28 may dəmiryolu xəstəxanasının yanında</td>
+                            <td class = "contact-container">
+                                <a href="tel:012-598-24-08">
+                                    <img src="../Icons/phone.png" alt="" class = "contact-icon">
+                                </a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">9</th>
+                            <td>PASAJ KITAB EVI</td>
+                            <td>1 kitab 15% 2 kitab 20%</td>
+                            <td>Rus dram teatrı arxası Mado kafe ilə üzbəüz podval</td>
+                            <td class = "contact-container">
+                                <a href="tel:+994 51 620 10 90">
+                                    <img src="../Icons/phone.png" alt="" class = "contact-icon">
+                                </a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">10</th>
+                            <td>PARABUZEN KITAB EVI</td>
+                            <td>1 kitab 10% 2 kitab 15%</td>
+                            <td>Sumqayıt şəhər 2 ci mkr kohne Heydər Əliyev Heykelinin sol terefi ile 3 nomreli mektebe geden yolda</td>
+                            <td class = "contact-container">
+                                <a href="tel:+994 55 265 10 37">
+                                    <img src="../Icons/phone.png" alt="" class = "contact-icon">
+                                </a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">11</th>
+                            <td>KITAB ALEMI</td>
+                            <td>15%</td>
+                            <td></td>
+                            <td class = "contact-container">
+                                <a href="tel:050-489-87-85">
+                                    <img src="../Icons/phone.png" alt="" class = "contact-icon">
+                                </a>
+                                <a href="https://instagram.com/kitab.alemi?igshid=7lucxf8ukr5q">
+                                    <img src="../Icons/instagram.png" alt="" class = "contact-icon">
+                                </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">12</th>
+                            <td>BUKINIST KITAB EVI</td>
+                            <td>20%</td>
+                            <td></td>
+                            <td class = "contact-container">
+                                <a href="tel:+994 55 771 28 69">
+                                    <img src="../Icons/phone.png" alt="" class = "contact-icon">
+                                </a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">13</th>
+                            <td>MARKER KITAB EVI</td>
+                            <td>rus azerbaycan bedii kitablara 10%</td>
+                            <td>25a  (Yelo bankla üzbə-üz. Səməd Vurğun parkının yanı), Baku, Azerbaijan) </td>
+                            <td class = "contact-container">
+                                <a href="tel:070-493-75-77">
+                                    <img src="../Icons/phone.png" alt="" class = "contact-icon">
+                                </a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">14</th>
+                            <td>KITABCI KITAB EVI</td>
+                            <td>5%</td>
+                            <td>1.Alı Mutafayev 11/107 Kitabçı, Baku, Azerbaijan, 111
+                                2. Xırdalan şəhəri kristal Abşeron 2
+                                </td>
+                            <td class = "contact-container">
+                                <a href="tel:051-463-65-17">
+                                    <img src="../Icons/phone.png" alt="" class = "contact-icon">
+                                </a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">15</th>
+                            <td>ALATORAN</td>
+                            <td>30%</td>
+                            <td>Qәlәndәr Klinikası Şəfayət Mehdiyev Küçəsi, Bakı https://maps.app.goo.gl/f4spbqpvcrpbn8469</td>
+                            <td class = "contact-container">
+                                <a href="tel:050-316-30-82">
+                                    <img src="../Icons/phone.png" alt="" class = "contact-icon">
+                                </a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">16</th>
+                            <td>BILIK KITAB EVI</td>
+                            <td>15%</td>
+                            <td>Xırdalan 2 nömrəli məktəbin yanı </td>
+                            <td class = "contact-container">
+                                <a href="tel:+994 55 223 83 92">
+                                    <img src="../Icons/phone.png" alt="" class = "contact-icon">
+                                </a>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">17</th>
+                            <td>Carnegie Kitab Evi </td>
+                            <td>10%</td>
+                            <td></td>
+                            <td class = "contact-container">
+                                <a href="https://instagram.com/carnegie_kitabevi?igshid=1cy380e0s03ls">
+                                    <img src="../Icons/instagram.png" alt="" class = "contact-icon">
+                                </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr>
+            <div class="my-5 text-center">
+                <p>Əldə etmək üçün Whatsapp hesabımıza müraciət edin</p>
+                <a href="https://wa.me/message/DYNH7Y7AW7TDO1" class="btn btn-danger btn-lg order-button px-5">Sifariş Et</a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <section class="footer text-center p-5" style = "background: var(--secondColor);">
+
+        <div class="d-flex align-items-center w-100 justify-content-center">
+            <img src="../Icons/copyright.svg" alt="" class = "pr-2" style = "width: 2rem;">
+            <span class="h5 text-white m-0">2020 BuyBook - müəllif hüquqları qorunur.</span>
+        </div>
+
+        <div class="text-center">
+            <a href="#" class = "sosial-media-icon"><img src="../Icons/gmail.png" alt=""></a>
+            <a href="#" class = "sosial-media-icon"><img src="../Icons/facebook.png" alt=""></a>
+            <a href="#" class = "sosial-media-icon"><img src="../Icons/twitter.png" alt=""></a>
+            <a href="#" class = "sosial-media-icon"><img src="../Icons/instagram.png" alt=""></a>
+        </div>
+
+    </section> 
+
+    <div class="align-items-center justify-content-center cursor-pointer bg-danger p-3 rounded-lg shadow go-to-back" onclick = " goToBack()">
+        <img src="../Icons/up-arrow.svg" alt="" class = "icons-style">
+    </div>
+    <script src = "../Js/pagesScroll.js"></script>
+
+
+    <script src = "../Js/header.js"></script>  
+    <!-- material ikonlar yuklendiyi zaman opacity nin berpasi ucun -->
+    <script src = "../Js/onLoadPage.js"></script>
+
+
+</body>
+</html>

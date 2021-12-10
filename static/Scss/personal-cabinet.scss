@@ -1,0 +1,107 @@
+
+
+#personal-cabinet{
+    font-family: "Open Sans", sans-serif;
+    .username-place{
+        width: 40rem;
+        height: 4rem;
+        font-size: 3.5rem;
+        font-family: "Roboto", sans-serif !important;
+        border: none;
+        color: red;
+        font-weight: bold;
+        outline: none;
+    }
+    .img-place{
+        width: 14rem;
+        height: 14rem;
+        flex: none;
+        .cabinet-profile-photo{
+            right: 2rem;
+            top: 2rem;
+        }
+    }
+
+    .bio-place{
+        font-size: 1.8rem;
+        width: 40rem;
+        height: 12rem;
+        font-family: "Roboto", sans-serif !important;
+        border:none;
+        border: 2px solid rgb(61, 61, 61);
+        border-radius: 2px;
+        outline: none;
+        padding: .5rem;
+        resize: none;
+
+    }
+    textarea::-webkit-scrollbar {
+        width: .3em;
+    }
+    
+    textarea::-webkit-scrollbar-track {
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    }
+    
+    textarea::-webkit-scrollbar-thumb {
+      background-color: red;
+      outline: 1px solid red;
+    }
+    .done-input-change{
+        display: none;
+    }
+}
+
+/* book dropdown */
+
+.cabinet-book-dropdown{
+    width: 100%;
+    height: 100vh;
+    position:fixed;
+    z-index: 200;
+    top: 0;
+    left:0;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    .book-dropdown-bg{
+        width: 100%;
+        height: 100%;
+        background: black;
+        opacity: .7;
+        position: absolute;
+        top:0;
+        left:0;
+    }
+    .close-cabinet-dropdown{
+        z-index: 1;
+        top: 2rem;
+        right: 2rem;
+        width: 5rem;
+
+    }
+}
+.cabinet-book-dropdown-active{
+    display: flex;
+}
+
+/*  book cards */
+.books .card {
+    width: 36rem;
+    transition: all 0.5s;
+  }
+  .books .card:hover {
+    transform: scale(1.05);
+    transition: all 0.5s;
+    cursor: pointer;
+  }
+  .books .card img {
+    transition: all 0.5s;
+  }
+  .books .card:hover img {
+    transform: scale(1.1);
+    transition: all 0.5s;
+  }
+  
+  /*# sourceMappingURL=book-cards.css.map */
+  

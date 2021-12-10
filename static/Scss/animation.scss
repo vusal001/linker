@@ -1,0 +1,10 @@
+
+// close button
+
+.animation-close-button{
+    transition: all .4s;
+    &:hover{
+        transform: rotateZ(90deg);
+        transition: all .4s;
+    }
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Scss/layout.css">
+    <link rel="stylesheet" href="../Scss/pages-inputs.css">
+    <link rel="stylesheet" href="../Scss/selected-dropdown.css">
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- tablet style -->
+    <link rel="stylesheet" media = "(max-width: 992px)" href="../Scss/tablet.css">
+    <!-- mobile style -->
+    <link rel="stylesheet" media = "(max-width: 576px)" href="../Scss/mobile.css">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="burger-menu-container">
+        <div class="burger-menu-bg" onclick = "showBurgerMenu()"></div>
+        <ul class="list-group h3 bg-white text-center burger-menu">
+            <li class="list-group-item text-center font-weight-bold text-white bg-dark position-relative">
+                MENU 
+                <img src="../Icons/close.svg" alt="" class = "close-burger-menu cursor-pointer position-absolute" onclick = "showBurgerMenu()">
+            </li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../index.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Ana Səhifə</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/insert-book.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Kitab yerləşdir</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/favorites.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Bəyəndiklərim</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/personal-cabinet.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Şəxsi Kabinet</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/about-us.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Haqqımızda</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/help.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Yardım</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/contact.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Əlaqə</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/sign-in.html" class = "btn btn-outline-success py-3 w-100 h-100 d-flex justify-content-center" style = "font-size: 1.75rem;">Daxil ol</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/sign-up.html" class = "btn btn-outline-danger py-3 w-100 h-100 d-flex justify-content-center" style = "font-size: 1.75rem;">Qeydiyyat</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/sign-in.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Çıxış et</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/place-add.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Saytda Reklam Verin</a></li>
+            <li class="list-group-item text-center cursor-pointer border">
+                Dəstək üçün bizi paylaşın             
+                <div class="text-center">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://buybookapp.herokuapp.com/" class = "sosial-media-icon"><img src="../Icons/facebook.png" alt=""></a>
+                    <a href="https://twitter.com/home?status=https://buybookapp.herokuapp.com/" class = "sosial-media-icon"><img src="../Icons/twitter.png" alt=""></a>
+                    <a href="#" class = "sosial-media-icon"><img src="../Icons/instagram.png" alt=""></a>
+                    <a href="https://wa.me/?text=buybookapp.herokuapp.com/" class = "sosial-media-icon"><img src="../Icons/whatsapp.png" alt=""></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="container-xl pb-5 mb-5">
+        <!-- header -->
+        <section class="header">
+            <nav class = "d-flex flex-wrap flex-lg-nowrap mb-5 mb-lg-0">
+                <!-- menu and logo -->
+                <div class="nav-one d-flex justify-content-start">   
+                    <div class="menu">
+                        <img src="../Icons/menu.svg" alt="" class = "icons-style cursor-pointer" onclick = "showBurgerMenu()">
+                    </div>
+                    <div class="logo">
+                        <a href = "../index.html"><img src="../Icons/logo.png" class = "ml-3" alt=""></a>
+                    </div>
+                </div>
+
+
+                <!-- user and shop -->
+                <div class="nav-three d-flex justify-content-end">
+                    <a href = "../Pages/insert-book.html" class="btn btn-danger p-2 mr-2">Kitab yerləşdir</a>
+                    
+                    
+                    <a href = "../Pages/personal-cabinet.html" class = "cursor-pointer icons-style mr-2"><img src="../Icons/person.svg" class = "icons-style alt=""></a>
+                    <a href = "../Pages/favorites.html" class="cursor-pointer"><img src="../Icons/favorite.svg"style = "width: 2.5rem;" alt=""></a>
+                </div>
+            </nav>
+        </section>
+        <!-- header  end-->
+
+        <section id="insert-book">
+            <h1 class="h1 display-4 font-weight-bolder text-center p-4 mb-3 mb-md-3">Kitab yerləşdir</h1>
+
+            
+                    <form action="" class = "mt-5">
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="d-flex align-items-center justify-content-between my-4 pl-4 input-container">
+                                    <input type="text" placeholder = "Kitabın adı..." class = "w-75 font-italic pl-2 border-0" required>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between my-4 pl-4 input-container">
+                                    <input type="text" placeholder = "Kitabın yazarı..." class = "w-75 font-italic pl-2 border-0" required>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between my-4 pl-4 input-container">
+                                    <input type="text" placeholder = "Ölkə..." class = "w-75 font-italic pl-2 border-0" required>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between my-4 pl-4 input-container">
+                                    <input type="text" placeholder = "Şəhər..." class = "w-75 font-italic pl-2 border-0" required>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between my-4 pl-4 input-container">
+                                    <input type="email" placeholder = "E-mail..." class = "w-75 font-italic pl-2 border-0" required>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="d-flex align-items-center justify-content-between mt-0 mt-md-4 mb-4 px-4 input-container">
+                                    <input type="tel" placeholder = "Əlaqə..." class = "w-75 font-italic pl-2 border-0" required>
+                                    <img src="../Icons/call.svg" alt="" class="icons-style">
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between my-4 px-4 position-relative input-container cursor-pointer" onclick = "selectDropdownElement(this)">
+                                    <input type="text" placeholder = "Kateqoriya..." class = "w-75 font-italic pl-2 border-0 cursor-pointer" disabled required>
+                                    <img src="../Icons/keyboard_arrow_down.svg" alt="" class="icons-style">
+                                    <ul class="list-group position-absolute w-100 shadow selected-dropdown">
+                                        <li class="list-group-item list-group-item-action cursor-pointer h3 m-0">Klassik</li>
+                                        <li class="list-group-item list-group-item-action cursor-pointer h3 m-0">Psixologiya</li>
+                                        <li class="list-group-item list-group-item-action cursor-pointer h3 m-0">Dedektiv</li>
+                                        <li class="list-group-item list-group-item-action cursor-pointer h3 m-0">Tarix</li>
+                                        <li class="list-group-item list-group-item-action cursor-pointer h3 m-0">Hüquq</li>
+                                        <li class="list-group-item list-group-item-action cursor-pointer h3 m-0">Bioqrafiya</li>
+                                        <li class="list-group-item list-group-item-action cursor-pointer h3 m-0">Dərslikər/Testlər</li>
+                                        <li class="list-group-item list-group-item-action cursor-pointer h3 m-0">Şəxsi İnkişaf</li>
+                                        <li class="list-group-item list-group-item-action cursor-pointer h3 m-0">Bədii Ədəbiyyat</li>
+                                        <li class="list-group-item list-group-item-action cursor-pointer h3 m-0">Uşaq ədəbiyyatı</li>
+                                        <li class="list-group-item list-group-item-action cursor-pointer h3 m-0">Romantik</li>
+                                        <li class="list-group-item list-group-item-action cursor-pointer h3 m-0">Digər</li>
+                                    </ul>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between my-4 px-4 position-relative input-container cursor-pointer" onclick = "selectDropdownElement(this)">
+                                    <input type="text" placeholder = "Vəziyyəti..." class = "w-75 font-italic pl-2 border-0 cursor-pointer" disabled required>
+                                    <img src="../Icons/keyboard_arrow_down.svg" alt="" class="icons-style">
+                                    <ul class="list-group position-absolute w-100 shadow selected-dropdown">
+                                        <li class="list-group-item list-group-item-action cursor-pointer h3 m-0">Əla</li>
+                                        <li class="list-group-item list-group-item-action cursor-pointer h3 m-0">Yaxşı</li>
+                                        <li class="list-group-item list-group-item-action cursor-pointer h3 m-0">Orta</li>
+                                        <li class="list-group-item list-group-item-action cursor-pointer h3 m-0">Pis</li>
+                                    </ul>                                    
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between my-4 px-4 input-container">
+                                    <input type="number" placeholder = "Qiyməti.." class = "w-75 font-italic pl-2 border-0" step = "any" required>
+                                    <img src="../Icons/manat.svg" alt="" class = "icons-style">
+                                </div>
+                                <label for="book-image-upload" class = "d-flex align-items-center justify-content-between my-4 px-4 input-container bg-success" style = "cursor: pointer;">
+                                        <p class="h2 font-weight-bold pl-2 text-white m-0">Kitabın şəkli</p>
+                                        <input type="file" id = "book-image-upload" placeholder = "E-mail..." class = "w-75 font-italic pl-2 border-0 d-none" required>
+                                        <img src="../Icons/photo_size_select_actual.svg" alt="" class = "icons-style">
+                                </label>
+                            </div>
+                            <div class="col-12">
+                                <textarea name="" id="" class = "border-0 font-italic pl-4 pt-3" placeholder="Qeyd:"></textarea>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-lg px-5 font-weight-bold my-4 btn-outline-success p-4 shadow">Düzəlt</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+
+
+
+
+    </div>
+
+    <section class="footer text-center p-5" style = "background: var(--secondColor);">
+
+        <div class="d-flex align-items-center w-100 justify-content-center">
+            <img src="../Icons/copyright.svg" alt="" class = "pr-2" style = "width: 2rem;">
+            <span class="h5 text-white m-0">2020 BuyBook - müəllif hüquqları qorunur.</span>
+        </div>
+
+        <div class="text-center">
+            <a href="#" class = "sosial-media-icon"><img src="../Icons/gmail.png" alt=""></a>
+            <a href="#" class = "sosial-media-icon"><img src="../Icons/facebook.png" alt=""></a>
+            <a href="#" class = "sosial-media-icon"><img src="../Icons/twitter.png" alt=""></a>
+            <a href="#" class = "sosial-media-icon"><img src="../Icons/instagram.png" alt=""></a>
+        </div>
+
+    </section>
+
+    <div class="align-items-center justify-content-center cursor-pointer bg-danger p-3 rounded-lg shadow go-to-back" onclick = " goToBack()">
+        <img src="../Icons/up-arrow.svg" alt="" class = "icons-style">
+    </div>
+    <script src = "../Js/pagesScroll.js"></script>
+
+    <script src = "../Js/header.js"></script>  
+    <script src = "../Js/selectDropdown.js"></script>
+
+
+</body>
+</html>

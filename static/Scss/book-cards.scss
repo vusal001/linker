@@ -1,0 +1,20 @@
+
+.books{
+    .card{
+        width: 36rem;
+        transition: all .5s;
+    }
+    .card:hover{
+        transform: scale(1.05);
+        z-index: 20;
+        transition: all .5s;
+        cursor: pointer;
+    }
+    .card img{
+        transition: all .5s;
+    }
+    .card:hover img{
+        transform: scale(1.1);
+        transition: all .5s;
+    }
+}

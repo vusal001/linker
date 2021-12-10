@@ -1,0 +1,23 @@
+html {
+  font-size: 9px;
+}
+
+/* header */
+.header nav .nav-one {
+  width: 50%;
+  order: 1;
+}
+.header nav .nav-two {
+  width: 100%;
+  order: 3;
+}
+.header nav .nav-three {
+  width: 50%;
+  order: 2;
+}
+
+.forget-password form .input-container {
+  width: 47rem;
+}
+
+/*# sourceMappingURL=tablet.css.map */

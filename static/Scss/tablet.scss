@@ -1,0 +1,33 @@
+html{
+    font-size: 9px;
+}
+
+/* header */
+.header{
+    nav{
+        
+        .nav-one{
+            width:50%;
+            order: 1;
+        }
+        .nav-two{
+            width: 100%;   
+            order: 3;   
+        }
+        .nav-three{
+            width:50%;
+            order: 2;
+        }
+    }
+}
+
+//  sign in forget password
+
+.forget-password{
+
+    form{
+        .input-container{
+            width: 47rem;    
+        }
+    }
+}

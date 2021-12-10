@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../Scss/layout.css">
+    <link rel="stylesheet" href="../Css/package-system.css">
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- tablet style -->
+    <link rel="stylesheet" media = "(max-width: 992px)" href="../Scss/tablet.css">
+    <!-- mobile style -->
+    <link rel="stylesheet" media = "(max-width: 576px)" href="../Scss/mobile.css">
+    <!-- google fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="burger-menu-container">
+        <div class="burger-menu-bg" onclick = "showBurgerMenu()"></div>
+        <ul class="list-group h3 bg-white text-center burger-menu">
+            <li class="list-group-item text-center font-weight-bold text-white bg-dark position-relative">
+                MENU 
+                <img src="../Icons/close.svg" alt="" class = "close-burger-menu cursor-pointer position-absolute" onclick = "showBurgerMenu()">
+            </li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../index.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Ana Səhifə</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/insert-book.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Kitab yerləşdir</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/favorites.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Bəyəndiklərim</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/personal-cabinet.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Şəxsi Kabinet</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/about-us.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Haqqımızda</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/help.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Yardım</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/contact.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Əlaqə</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/sign-in.html" class = "btn btn-outline-success py-3 w-100 h-100 d-flex justify-content-center" style = "font-size: 1.75rem;">Daxil ol</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/sign-up.html" class = "btn btn-outline-danger py-3 w-100 h-100 d-flex justify-content-center" style = "font-size: 1.75rem;">Qeydiyyat</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/sign-in.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Çıxış et</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/place-add.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Saytda Reklam Verin</a></li>
+            <li class="list-group-item text-center cursor-pointer border">
+                Dəstək üçün bizi paylaşın             
+                <div class="text-center">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://buybookapp.herokuapp.com/" class = "sosial-media-icon"><img src="../Icons/facebook.png" alt=""></a>
+                    <a href="https://twitter.com/home?status=https://buybookapp.herokuapp.com/" class = "sosial-media-icon"><img src="../Icons/twitter.png" alt=""></a>
+                    <a href="#" class = "sosial-media-icon"><img src="../Icons/instagram.png" alt=""></a>
+                    <a href="https://wa.me/?text=buybookapp.herokuapp.com/" class = "sosial-media-icon"><img src="../Icons/whatsapp.png" alt=""></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="container-xl pb-5 mb-5">
+        <!-- header -->
+        <section class="header">
+            <nav class = "d-flex flex-wrap flex-lg-nowrap mb-5 mb-lg-0">
+                <!-- menu and logo -->
+                <div class="nav-one d-flex justify-content-start">   
+                    <div class="menu">
+                        <img src="../Icons/menu.svg" alt="" class = "icons-style cursor-pointer" onclick = "showBurgerMenu()">
+                    </div>
+                    <div class="logo">
+                        <a href = "../index.html"><img src="../Icons/logo.png" class = "ml-3" alt=""></a>
+                    </div>
+                </div>
+
+
+                <!-- user and shop -->
+                <div class="nav-three d-flex justify-content-end">
+                    <a href = "../Pages/insert-book.html" class="btn btn-danger p-2 mr-2">Kitab yerləşdir</a>
+                    
+                    
+                    <a href = "../Pages/personal-cabinet.html" class = "cursor-pointer icons-style mr-2"><img src="../Icons/person.svg" class = "icons-style alt=""></a>
+                    <a href = "../Pages/favorites.html" class="cursor-pointer"><img src="../Icons/favorite.svg"style = "width: 2.5rem;" alt=""></a>
+                </div>
+            </nav>
+        </section>
+        <!-- header  end-->
+
+        <div class="pay-system">
+            <h1 class="h1 display-4 font-weight-bolder text-danger text-center p-4 mb-3 mb-md-5">Ödəniş et</h1>
+            <h2 class = "h1 font-weight-bold">Abunəlik paketi: </h2>
+            <div class="packages">
+                <div class="package selected" onclick = "selectedPackage1(this)">Aylıq - 1 AZN</div>
+                <div class="package" onclick = "selectedPackage2(this)">İllik - 3 AZN</div>
+            </div>
+            <div class="auto-refresh__container d-flex align-items-center h3 mt-4">
+                <label for="auto-reflesh" class = "pr-3 text-danger">Paketin müddəti bitdikdən sonra avtomatik yenilə</label>
+                <input type="checkbox" id = "auto-reflesh" class= "h1">
+            </div>
+            <hr class = "my-5">
+            <div class="pay-system__container">
+                <div class="row">
+                    <div class="col-75">
+                      <div class="container alert-secondary">
+                        <form action="/action_page.php">
+                  
+                          <div class="row">
+                  
+                            <div class="col-50">
+                              <label for="ccnum" class = "h3 mb-3 mt-2">Kart nömrəsi</label>
+                              <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444" class = "h4">
+                              <label for="expmonth" class = "h3 mb-3 mt-2">Bitmə tarixi</label>
+                              <input type="text" id="expmonth" name="expmonth" placeholder="10/20" class = "h4">
+                  
+                              <div class="row">
+                                <div class="col-50">
+                                  <label for="cvv" class = "h3 mb-3 mt-2">CVV2/CVC2</label>
+                                  <input type="text" id="cvv" name="cvv" placeholder="352" class = "h4">
+                                </div>
+                              </div>
+                            </div>
+                  
+                          </div>
+                          <button class="btn btn-danger btn-block h1 p-2" style = "font-size: 2rem;">Ödəniş et</button>
+                        </form>
+                      </div>
+                    </div>
+                  
+                    <div class="col-25">
+                      <div class="container alert-danger"
+                      style = "
+                        line-height: 2.5rem;
+                        font-size: 1.8rem;
+                        ">
+                          - Ödənişdən sonra seçdiyiniz paketin müddəti
+                          bitənə kimi limitsiz kitab yerləşdirə bilərsiniz. <br>
+                          - Bookavid.com məlumatlarınızın təhlükəsizliyinə tam
+                          zəmanət verir.
+                      </div>
+                    </div>
+                  </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </div>
+
+
+
+
+    
+    <section class="footer text-center p-5" style = "background: var(--secondColor);">
+
+        <div class="d-flex align-items-center w-100 justify-content-center">
+            <img src="../Icons/copyright.svg" alt="" class = "pr-2" style = "width: 2rem;">
+            <span class="h5 text-white m-0">2020 BuyBook - müəllif hüquqları qorunur.</span>
+        </div>
+
+        <div class="text-center">
+            <a href="#" class = "sosial-media-icon"><img src="../Icons/gmail.png" alt=""></a>
+            <a href="#" class = "sosial-media-icon"><img src="../Icons/facebook.png" alt=""></a>
+            <a href="#" class = "sosial-media-icon"><img src="../Icons/twitter.png" alt=""></a>
+            <a href="#" class = "sosial-media-icon"><img src="../Icons/instagram.png" alt=""></a>
+        </div>
+
+    </section> 
+
+    <div class="align-items-center justify-content-center cursor-pointer bg-danger p-3 rounded-lg shadow go-to-back" onclick = " goToBack()">
+        <img src="../Icons/up-arrow.svg" alt="" class = "icons-style">
+    </div>
+    <script src = "../Js/pagesScroll.js"></script>
+    <script src = "../Js/paySystem.js"></script>
+
+
+    <script src = "../Js/header.js"></script>  
+    <!-- material ikonlar yuklendiyi zaman opacity nin berpasi ucun -->
+    <script src = "../Js/onLoadPage.js"></script>
+
+
+</body>
+</html>

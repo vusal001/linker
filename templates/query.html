@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block menu %}
+        
+
+        
+
+        <!-- <div class="no-result">
+            Nəticə yoxdur
+        </div> -->
+
+        <!-- en son yuklenenler -->
+        <section id="most-loaded-books">
+             
+            <div class="row border border-left-0 border-right-0 border-top-0 pb-3 mb-5" style = 'border-color: var(--thirdColor);'>
+                <div class="col-12 d-flex align-items-end">
+                    <img src="{% static 'Icons/import_contacts.svg' %}" alt="" class="icons-style ml-2">
+                    <h3 class="section-title font-weight-bolder ml-3 text_color" style="margin-top: 10px;">Axtarış nəticəsi</h3>
+                </div>
+            </div>
+
+            <div class="books d-flex justify-content-around flex-wrap posts" >
+                {% for post in post %}
+                <a target="_blank" href="{{ post.link }}" style="color: black; text-decoration: none; height: 105px;">
+                <div class="card mb-5 border-5 shadow" style="max-width: 36rem; max-height: 105px !important; border-radius: 15px;">
+                    {% if post.linktype == 'Whatsapp' %}
+                    <div class="socialmediaicn" style="position: absolute; right: 17px; top: 10px; height: 28px; width: 28px;"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" width="100%" height="100%"/></div>
+                    {% elif post.linktype == 'Telegram' %}
+                    <div class="socialmediaicn" style="position: absolute; right: 17px; top: 10px; height: 28px; width: 28px;"><img src="https://img.icons8.com/color/48/000000/telegram-app--v1.png" width="100%" height="100%"/></div>
+                    {% endif %}
+
+                    <div class="row no-gutters">
+                        <div class="" style="border-radius: 50% !important; height: 100px; width: 100px; padding: 9px; padding-left: 15px;">
+                            <img src="{{ post.image.url }}"  style="border-radius: 50% !important; object-fit: cover; width: 100%; height: 100%;"  class="card-img rounded shadow" alt="...">
+                        </div>
+                        <div class="col-8">
+                            <div class="card-body" style="height: 100%;">
+                                <p class="blockquote text_color m-0 mb-1"><span style="color: black;">#{{ post.category.title }}</span></p>
+                                <h2 style="font-weight: 700;">{{ post.title }}</h2>
+                                <div class="row" style="display: flex; justify-content: space-between; ">
+                                    <div></div>
+                                    <div class="col-6 justify-content-end d-flex align-items-center pt-3" style="padding-right: 0 !important; padding-top: 5px !important;">
+                                        <img src="{% static 'Icons/favorite_border.svg' %}" alt="" class="mr-2 cursor-pointer" style = "width: 2.2rem" onclick = "changeFavorite(this)">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+
+            </div>
+            
+        </section>
+
+       
+        </section>
+
+        <!-- aktivlik -->
+        <section id="our-actions" style = "background: var(--secondColor);">
+
+            <div class="actions my-5 py-5 d-flex justify-content-center">
+
+                <div class=" border-0 mx-3">
+                    <div class="card-body text-center">
+                      <img src="{% static 'Icons/get_app.svg' %}" alt="" style = "width: 7rem;">
+                      <p class="font-weight-bold text-white h5 m-2">Yerləşdirilən elanlar</p>
+                      <p class="text_color font-weight-bolder" style = "font-size: 3.2rem;">25.4500</p>
+                    </div>
+                </div>
+
+                
+                <!-- <div class="card border-0 mx-3">
+                    <div class="card-body text-center">
+                        <img src="Icons/shopping_basket.svg" alt="" style = "width: 7rem;">
+                        <p class="font-weight-bold text-white h5 m-2">Satılan kitablar</p>
+                        <p class="text_color font-weight-bolder" style = "font-size: 3.2rem;">12.423</p>
+                    </div>
+                </div> -->
+                
+                <div class=" border-0 mx-3">
+                    <div class="card-body text-center">
+                        <img src="{% static 'Icons/person_add_disabled.svg' %}" alt="" style = "width: 7rem;">
+                      <p class="font-weight-bold text-white h5 m-2">İstifadəçi sayı</p>
+                      <p class="text_color font-weight-bolder" style = "font-size: 3.2rem;">10.0000</p>
+                    </div>
+                </div>
+                
+                <div class=" border-0 mx-3">
+                    <div class="card-body text-center">
+                        <img src="{% static 'Icons/view.svg' %}" alt="" style = "width: 7rem;">
+                      <p class="font-weight-bold text-white h5 m-2">Ziyarət sayı</p>
+                      <p class="text_color font-weight-bolder" style = "font-size: 3.2rem;">35.000000</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- elaqe -->
+        <!-- <section id="contact">
+                
+            <div class="row border border-left-0 border-right-0 border-top-0 pb-3 mb-5" style = 'border-color: var(--thirdColor);'>
+                <div class="col-12 d-flex align-items-end">
+                    <img src="Icons/mail.svg" alt="" class="ml-2">
+                    <h3 class="section-title font-weight-bolder ml-3 mb-1 text_color">Əlaqə</h3>
+                </div>
+            </div>
+
+            <h3 class="h3 text-center">Reklam və İş birliyi üçün</h3>
+            
+            <form action="#" class="w-100 my-5">
+                <div class="row">
+                    
+                    <div class="col-md-6 col-12 text-center text-md-right my-5 my-md-0 pr-md-5 px-4">
+                        <input type="text" class = "m-md-2 m-0 p-0 p-md-2 pl-0 pl-md-4 p-0 py-3 border-0 w-100 w-md-50 h3" placeholder="Adınız.." style = "outline: none;border-bottom: .1rem solid var(--thirdColor) !important;"><br>
+                        <input type="text" class = "m-md-2 m-0 p-0 p-md-2 pl-0 pl-md-4 p-0 py-3 border-0 w-100 w-md-50 h3" placeholder="Mailiniz..." style = "outline: none;border-bottom: .1rem solid var(--thirdColor) !important;"><br>
+                        <input type="text" class = "m-md-2 m-0 p-0 p-md-2 pl-0 pl-md-4 p-0 py-3 border-0 w-100 w-md-50 h3" placeholder="Mail başlığı..." style = "outline: none;border-bottom: .1rem solid var(--thirdColor) !important;">
+                    </div>
+                    
+                    <div class="col-md-6 col-12 text-center text-md-left pl-md-5 p-4">
+                        <textarea name="" id="" cols="30" rows="5" class = "w-md-75 w-100 h3 p-2 pl-4 border-0" placeholder="Mesajınız..." style = "outline: none;border: .1rem solid var(--thirdColor) !important;"></textarea>
+                    </div>
+                    
+                </div>
+
+                <div class="text-center my-5">
+                    <button class="btn btn-lg btn-outline-danger">Submit</button>
+                </div>
+
+            </form>
+
+        </section> -->
+
+    </div> 
+
+        {% endblock %}

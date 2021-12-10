@@ -1,0 +1,253 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Roboto", sans-serif !important;
+  position: relative !important;
+  min-height: 100vh;
+  padding-bottom: 12.9rem !important;
+}
+
+:root {
+  --mainColor: #EF3232;
+  /* red*/
+  --secondColor: #000;
+  /* black */
+  --thirdColor: #E1E1E1;
+  /* grey */
+  --fourthColor: #fff;
+  /* white */
+}
+
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url(../Fonts/Material-design//MaterialIcons-Regular.eot);
+  /* For IE6-8 */
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url(../Fonts/Material-design/MaterialIcons-Regular.woff2) format("woff2"), url(../Fonts/Material-design//MaterialIcons-Regular.woff) format("woff"), url(../Fonts/Material-design//MaterialIcons-Regular.ttf) format("truetype");
+}
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  font-size: 3rem;
+  opacity: 0;
+  cursor: inherit;
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+  /* Support for IE. */
+  font-feature-settings: "liga";
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+             supported by Chrome, Edge, Opera and Firefox */
+}
+
+.icons-style {
+  width: 3rem;
+}
+
+/* flex */
+.header nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.header nav .nav-three, .header nav .nav-two .search, .header nav .nav-two, .header nav .nav-one {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  justify-content: center;
+  -webkit-justify-content: center;
+  -moz-justify-content: center;
+  align-items: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.active-menu {
+  display: flex !important;
+}
+
+.active-block {
+  display: block !important;
+}
+
+.go-to-back {
+  display: none;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+}
+.go-to-back img {
+  width: 2rem;
+}
+
+/* header */
+.header {
+  background: var(--fourthColor);
+  width: 100%;
+}
+.header nav {
+  justify-content: space-around;
+  /* for ie */
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  align-items: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  width: 100%;
+  height: 12rem;
+  /* menu and logo */
+  /*search*/
+  /* user and shop */
+}
+.header nav .nav-one .menu .menu-icon {
+  font-size: 3rem;
+  cursor: pointer;
+  color: var(--secondColor);
+}
+.header nav .nav-one .logo img {
+  margin-left: 2rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+  width: 9rem;
+}
+.header nav .nav-two {
+  width: 50rem;
+  padding: 0 2.5rem;
+}
+.header nav .nav-two .search {
+  justify-content: space-around;
+  /* for ie */
+  justify-content: space-between;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  position: relative;
+  width: 100%;
+  height: 3rem;
+  background: var(--fourthColor);
+  border-radius: 2rem;
+  -webkit-box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.11);
+  -moz-box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.11);
+  box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.11);
+}
+.header nav .nav-two .search .search-input {
+  width: 95%;
+  height: 2.5rem;
+  outline: none;
+  border: none;
+  text-align: center;
+  background: transparent;
+  font-size: 1.3rem;
+}
+.header nav .nav-two .search .search-icon {
+  font-size: 2rem;
+}
+.header nav .nav-three .user-icon, .header nav .nav-three .store-icon {
+  font-size: 3rem;
+  color: var(--secondColor);
+  cursor: pointer;
+}
+.header nav .nav-three .user-icon {
+  margin-right: 1rem;
+}
+
+/* header */
+.header nav .nav-one .logo img {
+  width: 9rem;
+}
+
+/* burger menu */
+.burger-menu-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 30;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  transition: all 0.5;
+}
+.burger-menu-container .burger-menu-bg {
+  width: 100%;
+  height: 100%;
+  background: black;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.6;
+}
+.burger-menu-container .burger-menu {
+  width: 30rem;
+  height: 100vh;
+  background: white;
+  z-index: 30;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border: 0.1rem solid var(--thirdColor);
+}
+.burger-menu-container .burger-menu .close-burger-menu {
+  top: 50%;
+  width: 2.2rem;
+  right: 1rem;
+  transform: translateY(-50%);
+}
+
+/* footer  */
+.footer {
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
+}
+
+.sosial-media-icon img {
+  width: 3rem;
+  margin: 1rem;
+  margin-bottom: 0;
+  transition: all 0.5s;
+}
+.sosial-media-icon img:hover {
+  transform: scale(1.2);
+  transition: all 0.5s;
+}
+
+/*# sourceMappingURL=layout.css.map */

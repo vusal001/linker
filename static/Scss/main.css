@@ -1,0 +1,70 @@
+/* filter */
+.filter-container {
+  display: none;
+}
+
+/* categories */
+#categories .categories-list {
+  scroll-behavior: smooth;
+  overflow: auto;
+  white-space: nowrap;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+#categories .categories-list::-webkit-scrollbar {
+  display: none;
+}
+#categories .categories-list li {
+  padding: 1.5rem;
+  transition: all 0.1s;
+  cursor: pointer;
+}
+#categories .categories-list li:hover {
+  transition: all 0.5s;
+  transform: scale(1.1);
+  color: #dc3545;
+}
+
+/*our-actions*/
+#our-actions .actions .card {
+  width: 18rem;
+  background: transparent;
+}
+
+.no-result {
+  font-size: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40rem;
+  border-top: 1px solid #dee2e6;
+  font-weight: 500;
+  color: #747474;
+}
+
+.add-book-btn {
+  width: 7rem;
+  height: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none !important;
+  color: #fff;
+  background: #dc3545;
+  border-radius: 50%;
+  font-size: 5rem;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 50;
+  display: none;
+}
+
+.add-book-btn:hover {
+  color: #fff;
+}
+
+/*# sourceMappingURL=main.css.map */

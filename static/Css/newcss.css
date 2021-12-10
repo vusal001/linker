@@ -1,0 +1,55 @@
+
+
+.add-book-btn{
+    background-color: #3b5998 !important;
+}
+
+.top50{
+    padding: 8px;
+
+    background-color: 	#DC143C;
+    color: white;
+}
+
+.list-unstyled li a:hover{
+    color: #3b5998 !important;
+}
+
+.posts a{
+    margin-top: 10px !important;
+}
+
+.posts h2{
+    padding-top: 5px;
+}
+
+.text_color{
+    color: #3b5998 !important;
+}
+
+
+
+@media only screen and (max-width: 1000px) {
+    .mobil-topsite-icon{
+        display: flex;
+        position: fixed;
+        
+        width: 100%;
+        bottom: 90% !important;
+    }
+    .top_mob{
+        padding: 7px;
+        font-weight: 600;
+        background-color: white;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 15px;
+        color:rgb(72, 19, 133);
+        margin: auto;
+        font-size: 20px;
+        border: 2px rgb(72, 19, 133) solid;
+    }
+    .socialmediaicn{
+        right: 1.4% !important;
+    }
+}

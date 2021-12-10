@@ -1,0 +1,8 @@
+Baki,Azerbaijan
+Shamkir,Azerbaijan
+Istanbul,Turkiye
+Ankara,Turkiye
+Moskuva,Rusiya
+Gence,Azerbaijan
+New-York,Amerika
+Toronto,Canada

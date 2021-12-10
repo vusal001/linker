@@ -1,0 +1,59 @@
+form {
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+form .input-container {
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+  border-radius: 0.5rem;
+  background: #F5F5F5;
+  height: 6rem;
+  position:relative;
+}
+
+.input-warning{
+  position: absolute;
+  top: 105%;
+}
+
+form .input-container input[type=text], form .input-container input[type=email], form .input-container input[type=number], form .input-container input[type=password], form .input-container input[type=tel] {
+  font-size: 2.2rem;
+  outline: none;
+  background: transparent;
+}
+form textarea {
+  font-size: 2.2rem;
+  outline: none;
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+  border-radius: 0.5rem;
+  background: #F5F5F5;
+  height: 15rem;
+}
+form input[type=checkbox] {
+  border-radius: 50%;
+}
+form .remember-me-label {
+  color: #C4C4C4;
+  font-size: 1.4rem;
+}
+form input::-webkit-outer-spin-button,
+form input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+form input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/*# sourceMappingURL=pages-inputs.css.map */
+
+
+.insert-book_select{
+  width: 100%;
+  font-size: 2.2rem;
+  outline: none;
+  background: transparent;
+}
+
+

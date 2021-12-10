@@ -1,0 +1,9 @@
+.animation-close-button {
+  transition: all 0.4s;
+}
+.animation-close-button:hover {
+  transform: rotateZ(90deg);
+  transition: all 0.4s;
+}
+
+/*# sourceMappingURL=animation.css.map */

@@ -1,0 +1,41 @@
+#book-show {
+  font-family: "Open Sans", sans-serif;
+}
+#book-show .book-show-first {
+  width: 30rem;
+  height: 45rem;
+  background: red;
+  border-radius: 1rem;
+  flex: none;
+  margin-bottom: 4rem;
+}
+#book-show .book-show-first img {
+  border-radius: 1rem;
+}
+#book-show .book-show-second, #book-show .book-show-third {
+  width: 40rem;
+}
+#book-show .book-show-second h4, #book-show .book-show-third h4 {
+  font-size: 2.2rem;
+}
+#book-show .info-title {
+  font-size: 1.8rem;
+  color: #BEBEBE;
+  font-style: italic;
+}
+#book-show .note-value {
+  font-size: 1.6rem;
+  font-style: italic;
+  line-height: 2.2rem;
+}
+#book-show iframe {
+  height: 30rem;
+  border-radius: 1rem;
+}
+#book-show .book-share {
+  position: absolute;
+  bottom: -5rem;
+  font-size: 1.6rem;
+}
+
+/*# sourceMappingURL=book-show.css.map */

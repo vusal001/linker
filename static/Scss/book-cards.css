@@ -1,0 +1,19 @@
+.books .card {
+  width: 36rem;
+  transition: all 0.5s;
+}
+.books .card:hover {
+  transform: scale(1.05);
+  z-index: 20;
+  transition: all 0.5s;
+  cursor: pointer;
+}
+.books .card img {
+  transition: all 0.5s;
+}
+.books .card:hover img {
+  transform: scale(1.1);
+  transition: all 0.5s;
+}
+
+/*# sourceMappingURL=book-cards.css.map */

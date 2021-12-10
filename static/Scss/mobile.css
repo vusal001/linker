@@ -1,0 +1,42 @@
+html {
+  font-size: 9px;
+}
+
+/* our-actions */
+#our-actions .actions {
+  flex-direction: column;
+  align-items: center;
+}
+
+/* books card */
+/* book show  */
+#book-show .book-show-first {
+  width: 20rem;
+  height: 30rem;
+}
+#book-show .book-show-second, #book-show .book-show-third {
+  width: 100%;
+}
+
+/* personal cabinet */
+#personal-cabinet .username-place {
+  width: 24rem;
+  font-size: 3rem;
+}
+#personal-cabinet .bio-place {
+  width: 100%;
+}
+
+.forget-password form .input-container {
+  width: 25rem;
+}
+
+.add-book-btn {
+  display: flex;
+}
+
+.header-add-book {
+  display: none;
+}
+
+/*# sourceMappingURL=mobile.css.map */

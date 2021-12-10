@@ -1,0 +1,156 @@
+@import "global";
+/* header */
+
+.header{
+    background: var(--fourthColor);
+    width: 100%;
+    nav{
+        @extend %flex;
+        @include justifyContent(space-between);
+        @include alignItems(center);
+        width: 100%;
+        height: 12rem;
+        /* menu and logo */
+        .nav-one{
+            @extend %flexCenter;
+            .menu{
+                .menu-icon{
+                    font-size: 3rem;
+                    cursor: pointer;
+                    color: var(--secondColor);
+                }
+            }
+            .logo{
+                img{
+                    margin-left: 2rem;
+                    margin-bottom: .5rem;
+                    cursor: pointer;
+                    width: 9rem;
+                }
+            }
+        }
+        /*search*/
+        .nav-two{
+            @extend %flexCenter;
+            width: 50rem;
+            padding: 0 2.5rem;
+            .search{
+                @extend %flexCenter;
+                @include justifyContent(space-between);
+                position: relative;
+                width: 100%;
+                height: 3rem;
+                background: var(--fourthColor);
+                border-radius: 2rem;
+                -webkit-box-shadow: 2px 2px 5px 3px rgba(0,0,0,0.11);
+                -moz-box-shadow: 2px 2px 5px 3px rgba(0,0,0,0.11);
+                box-shadow: 2px 2px 5px 3px rgba(0,0,0,0.11);
+                .search-input{
+                    width: 95%;
+                    height: 2.5rem;
+                    outline: none;
+                    border: none;
+                    text-align:center;
+                    background: transparent;
+                    font-size: 1.3rem;
+                }
+
+                .search-icon{
+                    font-size: 2rem;
+                }
+            }
+        }
+
+        /* user and shop */
+
+        .nav-three{
+            @extend %flexCenter;
+
+            .user-icon, .store-icon{
+                font-size: 3rem;
+                color: var(--secondColor); 
+                cursor: pointer;
+            }
+
+            .user-icon{
+                margin-right: 1rem;
+            }
+        }
+
+    }
+}
+
+/* header */
+.header{
+    nav{
+        
+        .nav-one{
+            .logo{
+                img{
+                    width: 9rem;
+                }
+            }
+
+        }
+    }
+}
+/* burger menu */
+.burger-menu-container{
+    position: fixed;
+    top: 0;
+    left:0;
+    z-index: 30;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    transition: all .5;
+    .burger-menu-bg{
+        width: 100%;
+        height: 100%;
+        background: black;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: .6;
+    }
+    .burger-menu{
+        width: 30rem;
+        height: 100vh;
+        background: white;
+        z-index: 30;
+        position: absolute;
+        left: 0;
+        top: 0;
+        border:.1rem solid var(--thirdColor);
+        // display: none;
+        .close-burger-menu{
+            top: 50%;
+            width: 2.2rem;
+            right: 1rem;
+            transform: translateY(-50%);
+        }
+    }
+}
+/* footer  */ 
+
+.footer{
+
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    margin-bottom: 0px;
+}
+.sosial-media-icon{
+        
+    img{
+        width: 3rem;
+        margin: 1rem;
+        margin-bottom: 0;
+        transition: all .5s;
+        &:hover{
+            transform: scale(1.2);
+            transition: all .5s;
+        }
+    }
+}

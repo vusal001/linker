@@ -1,0 +1,48 @@
+
+
+
+form{
+    .input-container{
+        font-family: "Open Sans", sans-serif;
+        width: 100%;
+        border-radius: .5rem;
+        background: #F5F5F5;
+        height: 6rem;
+        input[type="text"],input[type="email"],input[type="number"],input[type="password"],input[type="tel"]{
+            // background: transparent;
+            font-size: 2.2rem;
+            outline: none;
+            background: transparent;
+        }
+    } 
+    textarea{
+        font-size: 2.2rem;
+        outline: none;
+        font-family: "Open Sans", sans-serif;
+        width: 100%;
+        border-radius: .5rem;
+        background: #F5F5F5;
+        height: 15rem;
+    }
+    input[type="checkbox"]{
+        border-radius: 50%;
+    }
+    .remember-me-label{
+        color: #C4C4C4;
+        font-size: 1.4rem;
+    }
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+    }
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+}  
+
+
+
+

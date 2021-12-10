@@ -1,0 +1,91 @@
+
+
+{% extends 'base.html' %}
+
+{% load static %}
+{% block menu %}
+<link rel="stylesheet" href="{% static 'Scss/layout.css' %}">
+<link rel="stylesheet" href="{% static 'Scss/sign-in-sign-up.css' %}">
+<link rel="stylesheet" href="{% static 'Scss/pages-inputs.css' %}">
+
+        <section id="sign-in">
+            <h1 class="h1 display-4 font-weight-bolder text-danger text-center p-4 mb-3 mb-md-3">Daxil ol</h1>
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-12 col-md-6">
+                    <form method="post" class = "mt-5">
+                        {% csrf_token %}
+                        <div class="mt-4 d-flex align-items-center justify-content-between my-5 pl-4 input-container">
+                         {{ form.username }}
+                        </div>
+                        <div class="mt-4 d-flex align-items-center justify-content-between my-4 px-4 input-container">
+                            {{ form.parol }}
+                            <img src="{% static 'Icons/invisible.svg' %}" alt="" class="icons-style cursor-pointer" onclick = "showPassword(this)">
+                        </div>
+                        <div class="d-flex align-items-center justify-content-between pl-2">
+                            <!-- <div class = "d-flex align-items-center">
+                                <input type="checkbox" id = "remember-me" class = "ml-4">
+                                <label for="remember-me" class = "pl-2 mb-0 font-italic remember-me-label">Yadda saxla</label>
+                            </div>
+                            <span class = "remember-me-label pr-4 cursor-pointer btn-link" onclick = "showForgetDropdown()">Parolu unutmuşam.</span> -->
+                        </div>
+                        <button type="submit" class="btn btn-danger btn-block p-3 font-weight-bold my-4 mt-5" style = "border-radius: .5rem;font-size: 2.5rem;">Daxil ol</button>
+                        <!-- <div class="d-flex flex-sm-nowrap flex-wrap my-3">
+                            <div class="btn btn-lg mr-0 my-2 mr-sm-2 p-4 w-100 border"><img src="{% static 'Icons/google.svg' %}" alt="" class = "mr-2" style = "width: 2.5rem;"> Google</div>
+                            <div class="btn btn-lg ml-0 my-2 ml-sm-2 p-4 w-100 text-white" style = "background: #3b5998;"><img src="{% static 'Icons/facebookI.svg' %}" alt="" class = "mr-2" style = "width: 2.5rem;"> Facebook</div>
+                        </div> -->
+                    </form>
+                    <div class="pl-2">
+                        <a href="{% url 'register' %}" class = "d-flex align-items-center text-dark h3 pl-4 pl-2">
+                            Qeydiyyat 
+                            <img src="{% static 'Icons/right-arrow.svg' %}" alt="" style = "width: 2rem;">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <section class="footer text-center p-5" style = "background: var(--secondColor);">
+
+        <div class="d-flex align-items-center w-100 justify-content-center">
+            <img src="../Icons/copyright.svg" alt="" class = "pr-2" style = "width: 2rem;">
+            <span class="h5 text-white m-0">2020 BuyBook - müəllif hüquqları qorunur.</span>
+        </div>
+
+        <div class="text-center">
+            <a href="#" class = "sosial-media-icon"><img src="../Icons/gmail.png" alt=""></a>
+            <a href="#" class = "sosial-media-icon"><img src="../Icons/facebook.png" alt=""></a>
+            <a href="#" class = "sosial-media-icon"><img src="../Icons/twitter.png" alt=""></a>
+            <a href="#" class = "sosial-media-icon"><img src="../Icons/instagram.png" alt=""></a>
+        </div>
+
+    </section>
+
+    <div class="w-100 align-items-center justify-content-center forget-password">
+        <div class="w-100 dropdown-bg-opacity" onclick = "showForgetDropdown()"></div>
+        <div class="px-5 py-3 bg-white position-relative mx-3 rounded-lg z-index-dropdown">
+            <div class = "w-100 text-right">
+                <img src="../Icons/close-dark.svg" alt="" class = "lose-burger-menu cursor-pointer mt-3" style = "width: 2rem;" onclick = "showForgetDropdown()">
+            </div>
+            <form action="" class = "w-100">
+                <div class="d-flex align-items-center justify-content-between my-4 px-4 input-container">
+                    <input type="email" placeholder = "E-mailiniz..." class = "w-100 font-italic px-2 border-0">
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-outline-danger p-3 mb-3 btn-lg" onclick = "showForgetDropdown()">Mail göndər</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="align-items-center justify-content-center cursor-pointer bg-danger p-3 rounded-lg shadow go-to-back" onclick = " goToBack()">
+        <img src="../Icons/up-arrow.svg" alt="" class = "icons-style">
+    </div>
+
+
+{% endblock %}
