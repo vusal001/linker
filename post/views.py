@@ -5,10 +5,65 @@ from .models import Category, Post
 from .forms import PostForm
 from django.contrib.auth.decorators import login_required
 from banners.models import *
+from django.contrib.auth.models import User
+from django.db.models import  F
 
 
 def is_valid_queryparam(param):
     return param != '' and param is not None
+
+
+def top_50(request):
+    post = Post.objects.all().order_by('like')[:50]
+    categories = Category.objects.all()
+    
+
+    user = User.objects.all()
+    reklam = MainBanner.objects.all()
+    cat = request.GET.get('category')
+    banners = Banner.objects.all()
+
+
+    query = request.GET.get('query')
+    # nov = request.GET.get('social')
+
+    if is_valid_queryparam(cat):
+        post = post.filter(category__title__icontains=cat)
+        contex = {
+            'post': post,
+        }
+        return render(request, 'query.html', contex)
+
+    if is_valid_queryparam(query):
+        post = post.filter(title__icontains=query)
+        contex = {
+            'post': post,
+        }
+        return render(request, 'query.html', contex)
+    
+    # if is_valid_queryparam(query) and nov == 'Hamısı':
+    #     post = post.filter(title__icontains=query)
+    #     contex = {
+    #         'post': post,
+    #     }
+    #     return render(request, 'query.html', contex)
+
+    # elif is_valid_queryparam(query) and nov != 'Hamısı':
+    #     post = post.filter(title__icontains=query, linktype__icontains=nov)
+    #     contex = {
+    #         'post': post,
+    #     }
+    #     return render(request, 'query.html', contex)
+
+    contex = {
+        'categories': categories,
+        'post': post,
+        'user': user,
+        'reklam': reklam,
+        'banner': banners,
+    }
+
+    return render(request, 'top50.html', contex)
 
 
 
@@ -25,15 +80,14 @@ def home_view(request):
     categories = Category.objects.all()
     last_posts = Post.objects.all().order_by('-posting_date')[:6]
 
+    user = User.objects.all()
     reklam = MainBanner.objects.all()
     cat = request.GET.get('category')
     banners = Banner.objects.all()
 
 
     query = request.GET.get('query')
-    nov = request.GET.get('social')
-
-    
+    # nov = request.GET.get('social')
 
     if is_valid_queryparam(cat):
         post = post.filter(category__title__icontains=cat)
@@ -41,25 +95,32 @@ def home_view(request):
             'post': post,
         }
         return render(request, 'query.html', contex)
-    
-    if is_valid_queryparam(query) and nov == 'Hamısı':
+
+    if is_valid_queryparam(query):
         post = post.filter(title__icontains=query)
         contex = {
             'post': post,
         }
         return render(request, 'query.html', contex)
+    
+    # if is_valid_queryparam(query) and nov == 'Hamısı':
+    #     post = post.filter(title__icontains=query)
+    #     contex = {
+    #         'post': post,
+    #     }
+    #     return render(request, 'query.html', contex)
 
-    elif is_valid_queryparam(query) and nov != 'Hamısı':
-        post = post.filter(title__icontains=query, linktype__icontains=nov)
-        contex = {
-            'post': post,
-        }
-        return render(request, 'query.html', contex)
+    # elif is_valid_queryparam(query) and nov != 'Hamısı':
+    #     post = post.filter(title__icontains=query, linktype__icontains=nov)
+    #     contex = {
+    #         'post': post,
+    #     }
+    #     return render(request, 'query.html', contex)
 
     contex = {
         'categories': categories,
         'post': last_posts,
-        
+        'user': user,
         'reklam': reklam,
         'banner': banners,
     }
@@ -67,6 +128,12 @@ def home_view(request):
     return render(request, 'index.html', contex)
 
 
+
+def post_like(request, id):
+    post = get_object_or_404(Post, id=id)
+    dolike = Post.objects.filter(id=post.id).update(like=F('like') + 1)
+
+    return redirect('home')
 
 @login_required(login_url='/account/login/')
 def post_create(request):
@@ -77,6 +144,7 @@ def post_create(request):
             post = form.save(commit=False)
             post.user = request.user
             post.save()
+            return redirect('home')
 
     contex = {
         'form': form,

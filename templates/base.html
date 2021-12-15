@@ -6,8 +6,8 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'Css/newcss.css' %}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BuyBook</title>
-    <link rel="icon" href="Icons/logo.png" type="image/x-icon" />
+    <title>Linker</title>
+    <link rel="icon" href="{% static 'Icons/logo2.png' %}" type="image/x-icon" />
     <link rel="stylesheet" href="{% static 'Scss/main.css' %}">
     <link rel="stylesheet" href="{% static 'Scss/book-cards.css' %}">
     <link rel="stylesheet" href="{% static 'Scss/layout.css' %}">
@@ -27,25 +27,31 @@
 </head>
 <body>
 
-    <a href="/name=filan" class="add-book-btn">+</a>
+    <a href="{% url 'post_create' %}" class="add-book-btn">+</a>
 
     <div class="burger-menu-container">
         <div class="burger-menu-bg" onclick = "showBurgerMenu()"></div>
         <ul class="list-group h3 bg-white text-center burger-menu">
-            <li class="list-group-item text-center font-weight-bold text-white bg-dark position-relative">
+            <li style="background-color: #6679FB;" class="list-group-item text-center font-weight-bold text-white position-relative">
                 MENU 
                 <img src="{% static 'Icons/close.svg' %}" alt="" class = "close-burger-menu cursor-pointer position-absolute" onclick = "showBurgerMenu()">
             </li>
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="index.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Ana Səhifə</a></li>
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="{% url 'post_create' %}" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Kitab yerləşdir</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="{% url 'home' %}" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Ana Səhifə</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="{% url 'post_create' %}" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Yeni elan</a></li>
             <!-- <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="Pages/favorites.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Bəyəndiklərim</a></li> -->
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="{% url 'profile' request.user %}" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Şəxsi Kabinet</a></li>
-
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="Pages/contact.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Əlaqə</a></li>
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="Pages/sign-in.html" class = "btn btn-outline-success py-3 w-100 h-100 d-flex justify-content-center" style = "font-size: 1.75rem;">Daxil ol</a></li>
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="Pages/sign-up.html" class = "btn btn-outline-danger py-3 w-100 h-100 d-flex justify-content-center" style = "font-size: 1.75rem;">Qeydiyyat</a></li>
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="Pages/sign-in.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Çıxış et</a></li>
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="Pages/place-add.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Saytda Reklam Verin</a></li>
+            {% if request.user.is_authenticated %}
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="{% url 'profile' request.user %}" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Elanlarım</a></li>
+            {% endif %}
+            <!-- <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="{% url 'profile' request.user %}" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Yadda saxlanılanlar</a></li> -->
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a target="_blank" href="https://wa.me/994504400895" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Əlaqə</a></li>
+            
+            {% if not request.user.is_authenticated %}
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="{% url 'login' %}" class = "btn btn-outline-success py-3 w-100 h-100 d-flex justify-content-center" style = "font-size: 1.75rem;">Daxil ol</a></li>
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="{% url 'register' %}" class = "btn btn-outline-danger py-3 w-100 h-100 d-flex justify-content-center" style = "font-size: 1.75rem;">Qeydiyyat</a></li>
+            
+            {% else %}
+            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="{% url 'logout' %}" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Çıxış et</a></li>
+            {% endif %} 
             <li class="list-group-item text-center cursor-pointer border">
                 Dəstək üçün bizi paylaşın             
                 <div class="text-center">
@@ -69,50 +75,70 @@
                         <img src="{% static 'Icons/menu.svg' %}" alt="" class = "icons-style cursor-pointer" onclick = "showBurgerMenu()">
                     </div>
                     <div class="logo">
-                        <a href = "{% url 'home' %}"><img src="{% static 'Icons/logo.png' %}" class = "ml-3" alt=""></a>
+                        <a href = "{% url 'home' %}"><img style="margin-top: 3px;" src="{% static 'Icons/logo3.png' %}" class = "ml-3" alt=""></a>
                     </div>
                 </div>
                 <!-- search  -->
-                <div class="nav-two d-flex justify-content-center" >
-                        <form type="post"  class="search px-3 align-items-center">
-                            
-                        <div  style="display: flex; flex-direction: column;">
-                            <div>
-                            <span></span>
-                            <input name="query" type="text" class = "search-input w-75" placeholder="Axtarış">
-                            
-                            </div>
-                           
-                            
+
+                
+
+                {% if request.path == '/account/login/' or request.path == '/account/register/' %}
+                <div class="nav-two d-flex justify-content-center">
+
+                </div>
+                
+                
+                {% else %}
+                <div style="display: block;" class="social_all">
+                <div class="nav-two d-flex justify-content-center">
+                    <form class="search px-3 align-items-center">
+                        <span></span>
+
+                        <input name="query" value="{{ request.GET.query }}" type="text" class = "search-input w-75" placeholder="Axtarış">
+                       
+                                                                        
                         
-                            <div>
-                            <input type="radio" id="hamsi" name="social" value="Hamısı" checked>
-         
-                            <label for="Whatsapp">Hamısı</label>
-                            <input type="radio" id="whatsapp" name="social" value="Whatsapp">
-         
-                            <label for="Whatsapp">Whatsapp</label>
-
-                            <input type="radio" id="telegram" name="social" value="Telegram">
-         
-                            <label for="Telegram">Telegram</label>
-                            </div>
-                    </div>
-
-                        <button type='submit' style = "border: none; background: transparent; outline: none;">
+                         
+                       
+                                
+                        <button style = "border: none; background: transparent; outline: none;">
                             <img src="{% static 'Icons/search.svg' %}" alt="" class = "search-icon cursor-pointer" style = "width: 2rem;"> 
                         </button>
-                    </form>
-                        
+                    
+
+                    
                 </div>
+                <div  style="display: flex; flex-direction: row; justify-content: center; margin-top: 10px;"> 
+                <input style="display: none;"  type="radio" id="Telegram" name="social" value="Telegram" >
+                                                                      
+                  <label class="telegram label_radio" for="Telegram">Telegram</label>
+                       
+                  <input style="display: none;" type="radio" id="whatsapp" name="social" value="Whatsapp" >
+                                                                                       
+                  <label class="whatsapp label_radio" for="whatsapp">Whatsapp</label>
+                          
+                  <input style="display: none;" type="radio" id="Facebook" name="social" value="Facebook" >
+                                                                            
+                  <label class="facebook label_radio" for="Facebook">Facebook</label>
+                          
+                  <input style="display: none;" type="radio" id="TikTok" name="social" value="TikTok" >
+                                                                            
+                  <label class="label_radio" for="TikTok">TikTok</label>
+                
+                </div>
+            </div>
+            </form>
+                {% endif %}
                 
 
                 <!-- user and shop -->
                 <div class="nav-three d-flex justify-content-end">
-                    <a href = "{% url 'post_create' %}" class="btn btn-danger p-2 mr-2 header-add-book" style="background-color: #3b5998 !important; border-color: #3b5998 !important;">Kitab yerləşdir</a>
+                    <a href = "{% url 'post_create' %}" class="btn btn-danger p-2 mr-2 header-add-book" style="background-color: #6679FB !important; border-color: #6679FB !important;">Yeni elan</a>
                     
-                    
-                    <a href = "{% url 'profile' request.user %}" class = "cursor-pointer icons-style mr-2"><img src="{% static 'Icons/person.svg' %}" class = "icons-style "></a>
+                    <!-- <a href="" class = "cursor-pointer icons-style mr-2"><img src="{% static 'Icons/ribbon.png' %}" alt="" class = "icons-style " height="25px"></a> -->
+                     {% if request.user.is_authenticated %}
+                      <a href = "{% url 'profile' request.user %}" class = "cursor-pointer icons-style mr-2"><img src="{% static 'Icons/person.svg' %}" class = "icons-style "></a>
+                    {% endif %}
                     <!-- <a href = "Pages/favorites.html" class="cursor-pointer"><img src="{% static 'Icons/favorite.svg' %}"style = "width: 2.5rem;" alt=""></a> -->
                 </div>
             </nav>
@@ -144,7 +170,7 @@
 
 </section>
 
-<div style="background-color: #3b5998 !important;" class="align-items-center justify-content-center cursor-pointer bg-danger p-3 rounded-lg shadow go-to-back" onclick = " goToBack()">
+<div style="background-color: #6679FB !important;" class="align-items-center justify-content-center cursor-pointer bg-danger p-3 rounded-lg shadow go-to-back" onclick = " goToBack()">
     <img src="{% static 'Icons/up-arrow.svg' %}" alt="" class = "icons-style">
 </div>
 <div class="mobil-topsite-icon " onclick = "goToBack()">
@@ -164,6 +190,58 @@
 <script src = "{% static 'js/api.js' %}"></script>
 <script src = "{% static 'Js/pagesScroll.js' %}"></script>
 
+<script src = "{% static 'Js/personal-cabinet.js' %}"></script> 
+
+
+<style>
+    .tgchange{
+
+        background-color: #37AEE2;
+        color: white !important;
+        border: 1px #37AEE2 solid;
+    }
+    .whatsappchange{
+        background-color: #25D366;
+        color: white;
+        border: 1px #25D366 solid;
+    }
+
+</style>
+<script>
+//     $('#Telegram').change(function(){
+//     if (this.checked)  {
+//         $('label[for=Telegram]').removeClass("telegram");
+//         $('label[for=Telegram]').addClass("tgchange");
+//         $('label[for=whatsapp]').removeClass("whatsappchang");
+//         $('label[for=whatsapp]').addClass("whatsapp");
+//     } 
+
     
+// });
+
+// $('#whatsapp').change(function(){
+//     if($(this).is(":checked")) {
+//         $('label[for=whatsapp]').removeClass("whatsapp");
+//         $('label[for=whatsapp]').addClass("whatsappchange");
+//         $('label[for=Telegram]').removeClass("tgchange");
+//         $('label[for=Telegram]').addClass("telegram");
+//     };
+
+
+    
+// });
+
+jQuery(function($){
+    $("#Telegram").click(function () {
+        $('label[for=Telegram]').toggleClass('tgchange', this.checked);
+        $('label[for=Telegram]').removeClass('telegram');
+    });
+
+
+
+})
+
+
+</script>
 </body>
 </html>

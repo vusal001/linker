@@ -1,307 +1,119 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="../Scss/layout.css">
-    <link rel="stylesheet" href="../Scss/personal-cabinet.css">
-    <link rel="stylesheet" href="../Scss/animation.css">
-    <!-- Bootstrap 4 -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <!-- tablet style -->
-    <link rel="stylesheet" media = "(max-width: 992px)" href="../Scss/tablet.css">
-    <!-- mobile style -->
-    <link rel="stylesheet" media = "(max-width: 576px)" href="../Scss/mobile.css">
-    <!-- google fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
-</head>
-<body>
+{% extends 'base.html' %}
 
-    <div class="burger-menu-container">
-        <div class="burger-menu-bg" onclick = "showBurgerMenu()"></div>
-        <ul class="list-group h3 bg-white text-center burger-menu">
-            <li class="list-group-item text-center font-weight-bold text-white bg-dark position-relative">
-                MENU 
-                <img src="../Icons/close.svg" alt="" class = "close-burger-menu cursor-pointer position-absolute" onclick = "showBurgerMenu()">
-            </li>
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../index.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Ana Səhifə</a></li>
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/insert-book.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Kitab yerləşdir</a></li>
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/favorites.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Bəyəndiklərim</a></li>
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/personal-cabinet.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Şəxsi Kabinet</a></li>
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/about-us.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Haqqımızda</a></li>
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/help.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Yardım</a></li>
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/contact.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Əlaqə</a></li>
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/sign-in.html" class = "btn btn-outline-success py-3 w-100 h-100 d-flex justify-content-center" style = "font-size: 1.75rem;">Daxil ol</a></li>
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/sign-up.html" class = "btn btn-outline-danger py-3 w-100 h-100 d-flex justify-content-center" style = "font-size: 1.75rem;">Qeydiyyat</a></li>
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/sign-in.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Çıxış et</a></li>
-            <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="../Pages/place-add.html" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Saytda Reklam Verin</a></li>
-            <li class="list-group-item text-center cursor-pointer border">
-                Dəstək üçün bizi paylaşın             
-                <div class="text-center">
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://buybookapp.herokuapp.com/" class = "sosial-media-icon"><img src="../Icons/facebook.png" alt=""></a>
-                    <a href="https://twitter.com/home?status=https://buybookapp.herokuapp.com/" class = "sosial-media-icon"><img src="../Icons/twitter.png" alt=""></a>
-                    <a href="#" class = "sosial-media-icon"><img src="../Icons/instagram.png" alt=""></a>
-                    <a href="https://wa.me/?text=buybookapp.herokuapp.com/" class = "sosial-media-icon"><img src="../Icons/whatsapp.png" alt=""></a>
-                </div>
-            </li>
-        </ul>
-    </div>
+{% load static %}
+{% block menu %}
+<link rel="stylesheet" href="{% static 'Scss/personal-cabinet.css' %}">
+<!-- <link rel="stylesheet" href="{% static 'Scss/animation.css' %}"> -->
 
-
-    <div class="container-xl pb-5 mb-5">
-        <!-- header -->
-        <section class="header">
-            <nav class = "d-flex flex-wrap flex-lg-nowrap mb-5 mb-lg-0">
-                <!-- menu and logo -->
-                <div class="nav-one d-flex justify-content-start">   
-                    <div class="menu">
-                        <img src="../Icons/menu.svg" alt="" class = "icons-style cursor-pointer" onclick = "showBurgerMenu()">
-                    </div>
-                    <div class="logo">
-                        <a href = "../index.html"><img src="../Icons/logo.png" class = "ml-3" alt=""></a>
-                    </div>
-                </div>
-
-
-                <!-- user and shop -->
-                <div class="nav-three d-flex justify-content-end">
-                    <a href = "../Pages/insert-book.html" class="btn btn-danger p-2 mr-2">Kitab yerləşdir</a>
-                    
-                    
-                    <a href = "../Pages/personal-cabinet.html" class = "cursor-pointer icons-style mr-2"><img src="../Icons/person.svg" class = "icons-style alt=""></a>
-                    <a href = "../Pages/favorites.html" class="cursor-pointer"><img src="../Icons/favorite.svg"style = "width: 2.5rem;" alt=""></a>
-                </div>
-            </nav>
-        </section>
-        <!-- header  end-->
+    
 
         <section id="personal-cabinet">
             <div class = "d-flex align-items-center ml-0 ml-md-4 mt-4 mt-md-0 my-5 justify-content-center">
-                <input class="text-center bg-white username-place" value = "Vugar Taghiyev" disabled>
-                <img src="../Icons/edit.svg" alt="" class = "icons-style ml-4 cursor-pointer" onclick = "falseDisabled(this)">
+                
+                <!-- <img src="../Icons/edit.svg" alt="" class = "icons-style ml-4 cursor-pointer" onclick = "falseDisabled(this)"> -->
                 <div class="btn btn-outline-danger ml-2 p-2 px-4 done-input-change" onclick = "trueDisabled(this)">Bitdi</div>
             </div>
 
-            <div class = "d-flex align-items-center flex-column flex-md-row p-0 p-md-5">
-
-                <div class="rounded-circle shadow img-place position-relative">
-                    <label for="cabinet-profile-photo" class = "position-absolute cursor-pointer cabinet-profile-photo">
-                        <img src="../Icons/photo-camera.svg" alt="" class="icons-style">
-                        <input type="file" id = "cabinet-profile-photo" class="d-none">
-                    </label>
-                    <img src="../Design/AJ_Finn_author_photo_color_photo_courtesy_of_the_author.0.jpg" alt="" class = "w-100 h-100 rounded-circle">
-                </div>
-
-                <div class = "d-flex align-items-center ml-0 ml-md-4 mt-4 mt-md-0">
-                    <textarea name="" id="" cols="30" rows="5" class = "bio-place">Lorem Ipsum is printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</textarea>
-                </div>
-
-            </div>
+       
             <div class="d-flex flex-column flex-sm-row my-4">
 
-                <div class = "h3 d-flex align-items-center justify-content-center border shadow w-100 m-0 m-sm-3 my-3 rounded-lg p-3">Balans: 3.00 Azn</div>
-                <div class = "h3 d-flex align-items-center justify-content-center bg-danger text-white shadow w-100 m-0 m-sm-3 my-3 rounded-lg p-3 cursor-pointer">
-                   <a href="./paySystem.html" class = "text-white text-decoration-none d-inline-block w-100 text-center h-100">Balansı artır</a>
-                </div>
-                <a href = "../Pages/insert-book.html" class = "h3 d-flex align-items-center justify-content-center bg-danger text-white shadow w-100 m-0 m-sm-3 my-3 rounded-lg p-3 cursor-pointer">Kitab yerləşdir</a>
+                
+                <!-- <a href = "{% url 'post_create' %}" class = "h3 d-flex align-items-center justify-content-center bg-danger text-white shadow w-100 m-0 m-sm-3 my-3 rounded-lg p-3 cursor-pointer" style="background-color: 6679fb !important;">Kitab yerləşdir</a>  -->
 
             </div>
 
             
             <div class="row border border-left-0 border-right-0 border-top-0 pb-3 mb-5 mt-5" style = 'border-color: var(--thirdColor);'>
                 <div class="col-12 d-flex align-items-end">
-                    <img src="../Icons/import_contacts.svg" alt="" class="icons-style ml-2">
-                    <h3 class="section-title font-weight-bolder ml-3 text-danger">Elanlarım</h3>
+                    
+                    <h3 class="section-title font-weight-bolder ml-3 text-danger" style="color: #6679fb !important;">Elanlarım</h3>
                 </div>
             </div>
 
             <div class="books d-flex justify-content-around flex-wrap">
-                <!-- book card start -->
-                <div class="card mb-3 border-0 shadow" style="max-width: 36rem;">
+                {% for post in post_list %}
+                
+                <div class="card mb-5 border-5 shadow" style="max-width: 36rem; max-height: 105px !important; border-radius: 15px;">
+                    {% if post.preminium == True %}
+                    <div class="premium">Premium</div>
+                    {% endif %}
+                    {% if post.linktype == 'Whatsapp' %}
+                    <div class="socialmediaicn" style="position: absolute; right: 17px; top: 10px; height: 28px; width: 28px;"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" width="100%" height="100%"/></div>
+                    {% elif post.linktype == 'Telegram' %}
+                    <div class="socialmediaicn" style="position: absolute; right: 17px; top: 10px; height: 28px; width: 28px;"><img src="https://img.icons8.com/color/48/000000/telegram-app--v1.png" width="100%" height="100%"/></div>
+                    {% endif %}
+
                     <div class="row no-gutters">
-                        <div class="col-4 p-4">
-                            <img src="../Design/booksImage/1.jpg" class="card-img rounded shadow" alt="...">
+                        <div class="" style="border-radius: 50% !important; height: 100px; width: 100px; padding: 9px; padding-left: 15px;">
+                            <img src="{{ post.image.url }}"  style="border-radius: 50% !important; object-fit: cover; width: 100%; height: 100%;"  class="card-img rounded shadow" alt="...">
                         </div>
                         <div class="col-8">
-                            <div class="card-body">
-                                <p class="blockquote text-danger m-0 mb-1"><span>#Dedektiv</span><span>#ikinciEl</span></p>
-                                <p class="blockquote-footer text-muted font-italic m-0">Adı:</p>
-                                <p class = "h5">Beach read</p>
-                                <p class="blockquote-footer text-muted font-italic m-0">Yazıçı:</p>
-                                <p class = "h5">William Shakespeare</p>
-                                <p class="blockquote-footer text-muted font-italic m-0">Şəhər:</p>
-                                <p class = "h5">Baki,Azerbaijan</p>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="blockquote-footer text-muted font-italic m-0">Qiymət:</p>
-                                        <p class = "h5">5$</p>
+                            <div class="card-body" style="height: 100%;">
+                                <p class="blockquote text_color m-0 mb-1"><span style="color: black;">#{{ post.category.title }}</span></p>
+                                <h2 style="font-weight: 700;">{{ post.title }}</h2>
+                                <div  style="display: flex;
+                                justify-content: space-between;
+                                width: 100%;
+                                height: 13px;
+                                margin-top: 15px;">
+                                    
+                                        <img onclick="showCabinetBook()" src="{% static 'Icons/settings.svg' %}" alt="" class="icons-style m-0 mr-2 cursor-pointer" style = "width: 1.8rem;" onclick = "showCabinetBook()">
+                                       
+                                    
+                                    
+                                    <div class="col-6 justify-content-end d-flex align-items-center pt-3" style="padding-right: 0 !important; padding-top: 5px !important;">
+                                        <span style="font-size: 15px; float: right;">{{ post.like }}</span>
+                                        <img src="{% static 'Icons/favorite_border.svg' %}" alt="" class="mr-2 cursor-pointer" style = "width: 2.2rem" onclick = "changeFavorite(this)">
+                                        
+                                        
                                     </div>
-                                    <div class="col-6 text-right d-flex align-items-center">
-                                        <img src="../Icons/settings.svg" alt="" class="icons-style m-0 mr-2 cursor-pointer" style = "width: 1.8rem;" onclick = "showCabinetBook()">
-                                        <a href = "../Pages/book-show.html" class = "btn btn-outline-danger">Ətraflı</a>
-                                    </div>
+                                    
                                 </div>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
-                <!-- book card end -->
-                <!-- book card start -->
-                <div class="card mb-3 border-0 shadow" style="max-width: 36rem;">
-                    <div class="row no-gutters">
-                        <div class="col-4 p-4">
-                            <img src="../Design/booksImage/1.jpg" class="card-img rounded shadow" alt="...">
+
+                <div class="cabinet-book-dropdown" style="z-index: 100000;">
+                    <img src="{% static 'Icons/close.svg' %}" alt="" class = "close-cabinet-dropdown cursor-pointer position-absolute animation-close-button" onclick = "showCabinetBook()">
+                    <div class="book-dropdown-bg" onclick = "showCabinetBook()"></div>
+                    <!-- book card start -->
+                    <div class="card mb-3 border-0 shadow" style="max-width: 40rem;">
+                        <div class="row no-gutters">
+                            <div class="col-4 p-4">
+                                <img src="{{ post.image.url }}" class="card-img rounded shadow" alt="...">
+                            </div>
+                            <div class="col-8">
+                                <div class="card-body">
+                                    <p class="blockquote text-danger m-0 mb-1">{{ post.category }}</p>
+                                    <p class="blockquote-footer text-muted font-italic m-0">Adı:</p>
+                                    <p class = "h5">{{ post.title }}</p>
+                                    
+                                   
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-8">
-                            <div class="card-body">
-                                <p class="blockquote text-danger m-0 mb-1"><span>#Dedektiv</span><span>#ikinciEl</span></p>
-                                <p class="blockquote-footer text-muted font-italic m-0">Adı:</p>
-                                <p class = "h5">Beach read</p>
-                                <p class="blockquote-footer text-muted font-italic m-0">Yazıçı:</p>
-                                <p class = "h5">William Shakespeare</p>
-                                <p class="blockquote-footer text-muted font-italic m-0">Şəhər:</p>
-                                <p class = "h5">Baki,Azerbaijan</p>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="blockquote-footer text-muted font-italic m-0">Qiymət:</p>
-                                        <p class = "h5">5$</p>
-                                    </div>
-                                    <div class="col-6 text-right d-flex align-items-center">
-                                        <img src="../Icons/settings.svg" alt="" class="icons-style m-0 mr-2 cursor-pointer" style = "width: 1.8rem;" onclick = "showCabinetBook()">
-                                        <a href = "../Pages/book-show.html" class = "btn btn-outline-danger">Ətraflı</a>
-                                    </div>
+                        <div class="row no-gutters p-2">
+                            <div class="col-6 text-center px-3">
+                                <a href = "{% url 'update' post.id %}" class="btn btn-lg btn-block btn-success text-white px-5" onclick = "showCabinetBook()">
+                                    Düzəlt</a>
+                            </div>
+                            <div class="col-6 text-center px-3">
+                                <div class="btn btn-lg btn-block btn-danger px-5" onclick = "showCabinetBook()">
+                                <a style="text-decoration: none; color: white;" href="{% url 'delete' post.id %}">Sil</a>   
                                 </div>
                             </div>
                         </div>
                     </div>
+                    <!-- book card end -->
+                    
                 </div>
-                <!-- book card end -->
-                <!-- book card start -->
-                <div class="card mb-3 border-0 shadow" style="max-width: 36rem;">
-                    <div class="row no-gutters">
-                        <div class="col-4 p-4">
-                            <img src="../Design/booksImage/1.jpg" class="card-img rounded shadow" alt="...">
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body">
-                                <p class="blockquote text-danger m-0 mb-1"><span>#Dedektiv</span><span>#ikinciEl</span></p>
-                                <p class="blockquote-footer text-muted font-italic m-0">Adı:</p>
-                                <p class = "h5">Beach read</p>
-                                <p class="blockquote-footer text-muted font-italic m-0">Yazıçı:</p>
-                                <p class = "h5">William Shakespeare</p>
-                                <p class="blockquote-footer text-muted font-italic m-0">Şəhər:</p>
-                                <p class = "h5">Baki,Azerbaijan</p>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="blockquote-footer text-muted font-italic m-0">Qiymət:</p>
-                                        <p class = "h5">5$</p>
-                                    </div>
-                                    <div class="col-6 text-right d-flex align-items-center">
-                                        <img src="../Icons/settings.svg" alt="" class="icons-style m-0 mr-2 cursor-pointer" style = "width: 1.8rem;" onclick = "showCabinetBook()">
-                                        <a href = "../Pages/book-show.html" class = "btn btn-outline-danger">Ətraflı</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- book card end -->
-                <!-- book card start -->
-                <div class="card mb-3 border-0 shadow" style="max-width: 36rem;">
-                    <div class="row no-gutters">
-                        <div class="col-4 p-4">
-                            <img src="../Design/booksImage/1.jpg" class="card-img rounded shadow" alt="...">
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body">
-                                <p class="blockquote text-danger m-0 mb-1"><span>#Dedektiv</span><span>#ikinciEl</span></p>
-                                <p class="blockquote-footer text-muted font-italic m-0">Adı:</p>
-                                <p class = "h5">Beach read</p>
-                                <p class="blockquote-footer text-muted font-italic m-0">Yazıçı:</p>
-                                <p class = "h5">William Shakespeare</p>
-                                <p class="blockquote-footer text-muted font-italic m-0">Şəhər:</p>
-                                <p class = "h5">Baki,Azerbaijan</p>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="blockquote-footer text-muted font-italic m-0">Qiymət:</p>
-                                        <p class = "h5">5$</p>
-                                    </div>
-                                    <div class="col-6 text-right d-flex align-items-center">
-                                        <img src="../Icons/settings.svg" alt="" class="icons-style m-0 mr-2 cursor-pointer" style = "width: 1.8rem;" onclick = "showCabinetBook()">
-                                        <a href = "../Pages/book-show.html" class = "btn btn-outline-danger">Ətraflı</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- book card end -->
-                <!-- book card start -->
-                <div class="card mb-3 border-0 shadow" style="max-width: 36rem;">
-                    <div class="row no-gutters">
-                        <div class="col-4 p-4">
-                            <img src="../Design/booksImage/1.jpg" class="card-img rounded shadow" alt="...">
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body">
-                                <p class="blockquote text-danger m-0 mb-1"><span>#Dedektiv</span><span>#ikinciEl</span></p>
-                                <p class="blockquote-footer text-muted font-italic m-0">Adı:</p>
-                                <p class = "h5">Beach read</p>
-                                <p class="blockquote-footer text-muted font-italic m-0">Yazıçı:</p>
-                                <p class = "h5">William Shakespeare</p>
-                                <p class="blockquote-footer text-muted font-italic m-0">Şəhər:</p>
-                                <p class = "h5">Baki,Azerbaijan</p>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="blockquote-footer text-muted font-italic m-0">Qiymət:</p>
-                                        <p class = "h5">5$</p>
-                                    </div>
-                                    <div class="col-6 text-right d-flex align-items-center">
-                                        <img src="../Icons/settings.svg" alt="" class="icons-style m-0 mr-2 cursor-pointer" style = "width: 1.8rem;" onclick = "showCabinetBook()">
-                                        <a href = "../Pages/book-show.html" class = "btn btn-outline-danger">Ətraflı</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- book card end -->
-                <!-- book card start -->
-                <div class="card mb-3 border-0 shadow" style="max-width: 36rem;">
-                    <div class="row no-gutters">
-                        <div class="col-4 p-4">
-                            <img src="../Design/booksImage/1.jpg" class="card-img rounded shadow" alt="...">
-                        </div>
-                        <div class="col-8">
-                            <div class="card-body">
-                                <p class="blockquote text-danger m-0 mb-1"><span>#Dedektiv</span><span>#ikinciEl</span></p>
-                                <p class="blockquote-footer text-muted font-italic m-0">Adı:</p>
-                                <p class = "h5">Beach read</p>
-                                <p class="blockquote-footer text-muted font-italic m-0">Yazıçı:</p>
-                                <p class = "h5">William Shakespeare</p>
-                                <p class="blockquote-footer text-muted font-italic m-0">Şəhər:</p>
-                                <p class = "h5">Baki,Azerbaijan</p>
-                                <div class="row">
-                                    <div class="col-6">
-                                        <p class="blockquote-footer text-muted font-italic m-0">Qiymət:</p>
-                                        <p class = "h5">5$</p>
-                                    </div>
-                                    <div class="col-6 text-right d-flex align-items-center">
-                                        <img src="../Icons/settings.svg" alt="" class="icons-style m-0 mr-2 cursor-pointer" style = "width: 1.8rem;" onclick = "showCabinetBook()">
-                                        <a href = "../Pages/book-show.html" class = "btn btn-outline-danger">Ətraflı</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- book card end -->
+          
+            {% endfor %}
                 
             </div>
-            <div class="text-center mt-5">
-                <button class="btn btn-lg btn-danger px-5 shadow">Daha çox</button>
-            </div>
+         
         </section>
 
 
@@ -326,54 +138,17 @@
     </section>
     
     
-    <div class="cabinet-book-dropdown">
-        <img src="../Icons/close.svg" alt="" class = "close-cabinet-dropdown cursor-pointer position-absolute animation-close-button" onclick = "showCabinetBook()">
-        <div class="book-dropdown-bg" onclick = "showCabinetBook()"></div>
-        <!-- book card start -->
-        <div class="card mb-3 border-0 shadow" style="max-width: 40rem;">
-            <div class="row no-gutters">
-                <div class="col-4 p-4">
-                    <img src="../Design/booksImage/7.jpg" class="card-img rounded shadow" alt="...">
-                </div>
-                <div class="col-8">
-                    <div class="card-body">
-                        <p class="blockquote text-danger m-0 mb-1"><span>#Dedektiv</span><span>#ikinciEl</span></p>
-                        <p class="blockquote-footer text-muted font-italic m-0">Adı:</p>
-                        <p class = "h5">Beach read</p>
-                        <p class="blockquote-footer text-muted font-italic m-0">Yazıçı:</p>
-                        <p class = "h5">William Shakespeare</p>
-                        <p class="blockquote-footer text-muted font-italic m-0">Şəhər:</p>
-                        <p class = "h5">Baki,Azerbaijan</p>
-                        <div class="row">
-                            <div class="col-12">
-                                <p class="blockquote-footer text-muted font-italic m-0">Qiymət:</p>
-                                <p class = "h5">5$</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row no-gutters p-2">
-                <div class="col-6 text-center px-3">
-                    <a href = "correctBook.html" class="btn btn-lg btn-block btn-success text-white px-5" onclick = "showCabinetBook()">Düzəlt</a>
-                </div>
-                <div class="col-6 text-center px-3">
-                    <div class="btn btn-lg btn-block btn-danger px-5" onclick = "showCabinetBook()">Satıldı | Sil</div>
-                </div>
-            </div>
-        </div>
-        <!-- book card end -->
-        
-    </div>
+    
 
+
+    
+   
+    
     <div class="align-items-center justify-content-center cursor-pointer bg-danger p-3 rounded-lg shadow go-to-back" onclick = " goToBack()">
-        <img src="../Icons/up-arrow.svg" alt="" class = "icons-style">
+        <img src="{% static 'Icons/up-arrow.svg' %}" alt="" class = "icons-style">
     </div>
-    <script src = "../Js/pagesScroll.js"></script>
 
-    <script src = "../Js/header.js"></script>  
-    <script src = "../Js/personal-cabinet.js"></script>  
+    {% endblock %}
 
+   
 
-</body>
-</html>

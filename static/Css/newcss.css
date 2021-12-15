@@ -1,19 +1,47 @@
 
 
 .add-book-btn{
-    background-color: #3b5998 !important;
+    background-color: #6679fb !important;
+}
+
+.svg-color{
+    filter: invert(40%) sepia(82%) saturate(1292%) hue-rotate(215deg) brightness(100%) contrast(98%);
 }
 
 .top50{
     padding: 8px;
-
     background-color: 	#DC143C;
     color: white;
 }
 
-.list-unstyled li a:hover{
-    color: #3b5998 !important;
+
+
+
+
+.label_radio{
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 3px;
+    
+    margin-left: 3px;
+    
 }
+
+.list-unstyled li a:hover{
+    color: #6679fb !important;
+}
+
+.telegram{
+    color: #37AEE2;
+    border: 1px #37AEE2 solid;
+}
+
+.whatsapp{
+    color: #25D366;
+    border: 1px #25D366 solid;
+}
+
+
 
 .posts a{
     margin-top: 10px !important;
@@ -23,8 +51,36 @@
     padding-top: 5px;
 }
 
+.top50 :hover{
+    color: white !important;
+}
+
 .text_color{
-    color: #3b5998 !important;
+    color: #6679fb !important;
+}
+
+.card-body .d-flex {
+    position: absolute;
+    right: -4px;
+    top: 65px;
+}
+
+.premium{
+    position: absolute;
+    font-size: 8px;
+    margin-top: 7px;
+    z-index: 1000;
+    background-color: #f5d20a;
+    padding: 3px 13px;
+    transform: rotate(-45deg);
+    margin-left: -16px;
+    clip-path: polygon(30% 0%, 0 100%, 7% 100%, 100% 84%, 74% 0%);
+}
+
+    
+
+.social_all{
+    margin-top: 50px;
 }
 
 
@@ -37,6 +93,14 @@
         width: 100%;
         bottom: 90% !important;
     }
+
+    .social_all{
+        order: 4 !important;
+        width: 100%;
+        margin-top: 0px;
+    }
+
+
     .top_mob{
         padding: 7px;
         font-weight: 600;

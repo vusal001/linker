@@ -21,7 +21,7 @@
    
 
         <section id="sign-up">
-            <h1 class="h1 display-4 font-weight-bolder text-danger text-center p-4 mb-3 mb-md-3">Qeydiyyat</h1>
+            <h1 class="h1 display-4 font-weight-bolder  text-center p-4 mb-3 mb-md-3" style="color: #6679FB;">Qeydiyyat</h1>
 
             <div class="row d-flex justify-content-center">
                 <div class="col-12 col-md-6">
@@ -35,13 +35,13 @@
                         </div>
                         <div class="mt-4 d-flex align-items-center justify-content-between my-4 px-4 input-container">
                             {{ form.password1 }}
-                            <img src="{% static 'Icons/invisible.svg' %}" alt="" class="icons-style cursor-pointer" onclick = "showPassword(this)">
+                            <img src="{% static 'Icons/invisible.svg' %}" alt="" class="svg-color icons-style cursor-pointer" onclick = "showPassword(this)">
                         </div>
                         <div class="mt-4 d-flex align-items-center justify-content-between my-5 px-4 input-container">
                             {{ form.password2 }}
-                            <img src="{% static 'Icons/invisible.svg' %}" alt="" class="icons-style cursor-pointer" onclick = "showPassword(this)">
+                            <img src="{% static 'Icons/invisible.svg' %}" alt="" class="svg-color icons-style cursor-pointer" onclick = "showPassword(this)">
                         </div>
-                        <button type="submit" class="btn btn-danger btn-block p-3 font-weight-bold my-4 mt-5" style = "border-radius: .5rem;font-size: 2.5rem;">Qeydiyyat</button>
+                        <button type="submit"  class="btn btn-block p-3 font-weight-bold my-4 mt-5" style = "color: white; background-color: #6679FB; border-radius: .5rem;font-size: 2.5rem;">Qeydiyyat</button>
                         <div class="d-flex flex-sm-nowrap flex-wrap my-3">
                             <!-- <div class="btn btn-lg mr-0 my-2 mr-sm-2 p-4 w-100 border"><img src="../Icons/google.svg" alt="" class = "mr-2" style = "width: 2.5rem;"> Google</div>
                             <div class="btn btn-lg ml-0 my-2 ml-sm-2 p-4 w-100 text-white" style = "background: #3b5998;"><img src="../Icons/facebookI.svg" alt="" class = "mr-2" style = "width: 2.5rem;"> Facebook</div> -->
@@ -50,10 +50,11 @@
                     <div class="pl-2">
                         <a href="{% url 'login' %}" class = "d-flex align-items-center text-dark h3 pl-4 pl-2">
                             Daxil ol 
-                            <img src="{% static 'Icons/right-arrow.svg' %}" alt="" style = "width: 2rem;">
+                            <img src="{% static 'Icons/right-arrow.svg' %}" class="svg-color" alt="" style = "width: 2rem;">
                         </a>
                     </div>
                 </div>
+                
             </div>
 
         </section>
@@ -64,7 +65,25 @@
  
     <script src = "{% static 'Js/pagesScroll.js' %}"></script>
     <script src = "{% static 'Js/header.js' %}"></script>  
-    <script src = "{% static 'Js/sing-in-sign-up.js' %}"></script> 
+  
+    <script>
+        
+var sekil1 = "{% static 'Icons/invisible.svg' %}"
+var sekil2= "{% static 'Icons/visibility.svg' %}"
+
+
+function showPassword(e){
+    let eAttr = e.getAttribute("src");
+    if(eAttr == sekil1){
+        e.setAttribute("src", sekil2);
+        e.parentElement.children[0].setAttribute("type","text");
+    }
+    else{
+        e.setAttribute("src",sekil1);
+        e.parentElement.children[0].setAttribute("type","password");
+    }
+}
+    </script>
 
 
 {% endblock %}

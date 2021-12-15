@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
     {% block menu %}
+
     <link rel="stylesheet" href="{% static 'Scss/layout.css' %}">
     <link rel="stylesheet" href="{% static 'Scss/pages-inputs.css' %}">
     <link rel="stylesheet" href="{% static 'Scss/selected-dropdown.css' %}">
@@ -12,11 +13,68 @@
     <link rel="stylesheet" media = "(max-width: 576px)" href="{% static 'Scss/mobile.css' %}">
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <script>
+                
+        function preback() { window.history.forward(); }
+            setTimeout("preback()", 0);
+            window.onunload = function() {null};
+ </script>
+
+
+<style>
+    
+.loading{
+       	opacity: 95%;
+     	display: none;
+       	background-color: white;
+       	height: 100%;
+       	position: fixed;
+        z-index: 5;
+       	left: 0;
+       	top: 0;
+       	width: 100%;
+
+       }
+
+       .load{
+        text-align: center;
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+       }
+
+       .loader {
+                  border: 8px solid #f3f3f3;
+                  border-radius: 50%;
+                  border-top: 8px solid #3498db;
+                  width: 50px;
+                  height: 50px;
+                  margin: auto;
+                  -webkit-animation: spin 2s linear infinite; /* Safari */
+                  animation: spin 2s linear infinite;
+                }
+                
+                /* Safari */
+                @-webkit-keyframes spin {
+                  0% { -webkit-transform: rotate(0deg); }
+                  100% { -webkit-transform: rotate(360deg); }
+                }
+                
+                @keyframes spin {
+                  0% { transform: rotate(0deg); }
+                  100% { transform: rotate(360deg); }
+                }
+</style>
+
         <section id="insert-book">
-            <h1 class="h1 display-4 font-weight-bolder text-danger text-center p-4 mb-3 mb-md-3">Kitab yerləşdir</h1>
+            <h1 style="color: #6676fb !important;" class="h1 display-4 font-weight-bolder text-danger text-center p-4 mb-3 mb-md-3">Kitab yerləşdir</h1>
 
             
-                    <form  class = "mt-5" method="POST" enctype="multipart/form-data">
+                    <form  class = "mt-5" method="POST" enctype="multipart/form-data" >
                         {% csrf_token %}
                         <div class="row">
                             <div>
@@ -31,11 +89,11 @@
                             <div class="col-12 col-md-6">
                                 <div class="d-flex align-items-center justify-content-between my-5 pl-4 input-container">
                                     {{ form.title }}
-                                    <div class="input-warning text-danger h5">Input warning input warning</div>
+                                    <div class="input-warning text-danger h5" style="color: #6676fb !important;">Input warning input warning</div>
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between my-5 pl-4 input-container">
                                     {{ form.link }}
-                                    <div class="input-warning text-danger h5">Input warning input warning</div>
+                                    <div class="input-warning text-danger h5" style="color: #6676fb !important;">Input warning input warning</div>
                                 </div>
                                
                                
@@ -47,27 +105,27 @@
                                         {{ form.category }}
                                     
                                     
-                                    <div class="input-warning text-danger h5">Input warning input warning</div>
+                                    <div class="input-warning text-danger h5" style="color: #6676fb !important;">Input warning input warning</div>
                                     
                                 </div>
                                 <div class="d-flex align-items-center justify-content-between my-5 px-4 position-relative input-container cursor-pointer">
                                     {{ form.linktype }}
-                                    <div class="input-warning text-danger h5">Input warning input warning</div>
+                                    <div class="input-warning text-danger h5" style="color: #6676fb !important;">Input warning input warning</div>
                                    
                                 </div>
                                 
-                                <label for="book-image-upload" class = "d-flex align-items-center justify-content-between my-5 px-4 input-container bg-danger" style = "cursor: pointer;">
-                                        <p class="h2 font-weight-bold pl-2 text-white m-0">Kitabın şəkli</p>
+                                <label style="background-color: #6676fb !important;" for="book-image-upload" class = "d-flex align-items-center justify-content-between my-5 px-4 input-container bg-danger" style = "cursor: pointer;">
+                                        <p class="h2 font-weight-bold pl-2 text-white m-0" >Kitabın şəkli</p>
                                         {{ form.image }}
                                        
-                                        <div class="input-warning text-danger h5">Input warning input warning</div>
-                                        <img src="{% static 'Icons/photo_size_select_actual.svg' %}" alt="" class = "icons-style">
+                                        <div class="input-warning text-danger h5" style="color: #6676fb !important;">Input warning input warning</div>
+                                        <img src="{% static 'Icons/photo_size_select_actual.svg' %}" alt="" class = " icons-style">
                                 </label>
                             </div>
                             
                         </div>
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-lg px-5 font-weight-bold my-4 btn-outline-danger p-4 shadow">Yerləşdir</button>
+                        <div class="text-center" >
+                            <button type="submit" style="color: #6676fb !important; border-color: #6676fb !important;" class="btn btn-lg px-5 font-weight-bold my-4 btn-outline-danger p-4 shadow">Yerləşdir</button>
                         </div>
                     </form>
                 </div>
@@ -79,7 +137,34 @@
 
 
     </div>
+
+    <div class="loading" >
+        <div class="load">
+         
+    
+    
+          <div class="loader"></div>
+    
+          <div style="margin-top: 5px">Elanınız yüklənir</div>
+          
+          <div> Zəhmət olmasa gözləyin... </div>
+    
+    </div>
+    </div>
+   
     <script src = "{% static 'Js/header.js' %}"></script>  
     <script src = "{% static 'Js/selectDropdown.js' %}"></script>
+    <script>
+        $(document).ready(function(){
+
+        $('#personForm').on('submit', function(){
+        $('body').css('overflow', 'hidden');
+        $('.loading').fadeIn();
+
+
+        });
+
+        });
+    </script>
     {% endblock %}
     
