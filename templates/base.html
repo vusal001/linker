@@ -4,7 +4,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'Css/newcss.css' %}">
+
+
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linker</title>
     <link rel="icon" href="{% static 'Icons/logo2.png' %}" type="image/x-icon" />
@@ -22,14 +24,20 @@
     <link rel="stylesheet" media = "(max-width: 576px)" href="{% static 'Scss/mobile.css' %}">
     <!-- google fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'Css/newcss.css' %}">
 </head>
 <body>
 
-    <a href="{% url 'post_create' %}" class="add-book-btn">+</a>
+    {% if request.path == '/account/login/' or request.path == '/account/register/' %}
 
-    <div class="burger-menu-container">
+    {% else %}
+    <a href="{% url 'post_create' %}" class="add-book-btn">+</a>
+    {% endif %}
+
+    
+
+    <div class="burger-menu-container" style="z-index: 10000">
         <div class="burger-menu-bg" onclick = "showBurgerMenu()"></div>
         <ul class="list-group h3 bg-white text-center burger-menu">
             <li style="background-color: #6679FB;" class="list-group-item text-center font-weight-bold text-white position-relative">
@@ -52,7 +60,7 @@
             {% else %}
             <li class="list-group-item text-center list-group-item-action cursor-pointer border-0 px-0"><a href="{% url 'logout' %}" class = "text-dark py-3 w-100 h-100 d-flex justify-content-center">Çıxış et</a></li>
             {% endif %} 
-            <li class="list-group-item text-center cursor-pointer border">
+            <!-- <li class="list-group-item text-center cursor-pointer border">
                 Dəstək üçün bizi paylaşın             
                 <div class="text-center">
                     <a href="https://www.facebook.com/sharer/sharer.php?u=https://buybookapp.herokuapp.com/" class = "sosial-media-icon"><img src="{% static 'Icons/facebook.png' %}" alt=""></a>
@@ -60,14 +68,14 @@
                     <a href="#" class = "sosial-media-icon"><img src="{% static 'Icons/instagram.png' %}" alt=""></a>
                     <a href="https://wa.me/?text=buybookapp.herokuapp.com/" class = "sosial-media-icon"><img src="{% static 'Icons/whatsapp.png' %}" alt=""></a>
                 </div>
-            </li>
+            </li> -->
         </ul>
     </div>
 
 
     <div class="container-xl">
         <!-- header -->
-        <section class="header">
+        <section class="header" >
             <nav class = "d-flex flex-wrap flex-lg-nowrap mb-5 mb-lg-0">
                 <!-- menu and logo -->
                 <div class="nav-one d-flex justify-content-start">   
@@ -106,28 +114,41 @@
                         </button>
                     
 
-                    
+
+
+                        
                 </div>
-                <div  style="display: flex; flex-direction: row; justify-content: center; margin-top: 10px;"> 
-                <input style="display: none;"  type="radio" id="Telegram" name="social" value="Telegram" >
-                                                                      
-                  <label class="telegram label_radio" for="Telegram">Telegram</label>
+        
+            <div class="checkboxs"  style=" display: flex; flex-direction: row;  margin-top: 10px;"> 
+                <div style="display: flex;">
+                <!-- <input style="" type="checkbox" id="Facebook" name="facebook" value="Facebook" > -->
+                                 
+                <a style="padding-top: 5px;" href="{% url 'facebook_posts' %}" class="facebook label_radio" for="Facebook">Facebook</a> 
+                 
+                <!-- <input style=""  type="checkbox" id="Telegram" name="telegram" value="Telegram" > -->
+                    
+                  <a style="padding-top: 5px;" href="{% url 'telegram_posts' %}" class="telegram label_radio" for="Telegram">Telegram</a>
                        
-                  <input style="display: none;" type="radio" id="whatsapp" name="social" value="Whatsapp" >
+                  <!-- <input style="" type="checkbox" id="Whatsapp" name="whatsapp" value="Whatsapp" > -->
                                                                                        
-                  <label class="whatsapp label_radio" for="whatsapp">Whatsapp</label>
-                          
-                  <input style="display: none;" type="radio" id="Facebook" name="social" value="Facebook" >
+                  <a style="padding-top: 5px;" href="{% url 'wp_posts' %}" class="whatsapp label_radio" for="Whatsapp">Whatsapp</a>
+
+                  <!-- <input style=""  type="checkbox" id="Instagram" name="instagram" value="Instagram" > -->
                                                                             
-                  <label class="facebook label_radio" for="Facebook">Facebook</label>
-                          
-                  <input style="display: none;" type="radio" id="TikTok" name="social" value="TikTok" >
+                  <a style="padding-top: 5px;" href="{% url 'insta_posts' %}" class="instagram label_radio" for="Instagram">Instagram</a>
+
+                  <!-- <input style="" type="checkbox" id="Youtube" name="youtube" value="Youtube" > -->
                                                                             
-                  <label class="label_radio" for="TikTok">TikTok</label>
-                
+                  <a style="padding-top: 5px;" href="{% url 'youtube_posts' %}" class="label_radio youtube" for="Youtube">Youtube</a>
+
+                  <!-- <input style="" type="checkbox" id="TikTok" name="tiktok" value="TikTok" > -->
+                                                                            
+                  <a style="padding-top: 5px;" href="{% url 'tiktok_posts' %}" class="label_radio tiktok" for="TikTok">TikTok</a>
                 </div>
             </div>
-            </form>
+            </div>
+            
+            
                 {% endif %}
                 
 
@@ -146,7 +167,7 @@
             
             
             </div>
-                            
+        </form>    
         </section>
 
 
@@ -158,14 +179,14 @@
 
     <div class="d-flex align-items-center w-100 justify-content-center">
         <img src="{% static 'Icons/copyright.svg' %}" alt="" class = "pr-2" style = "width: 2rem;">
-        <span class="h5 text-white m-0">2020 BuyBook - müəllif hüquqları qorunur.</span>
+        <span class="h5 text-white m-0">2022 Linker - müəllif hüquqları qorunur.</span>
     </div>
 
     <div class="text-center">
-        <a href="#" class = "sosial-media-icon"><img src="{% static 'Icons/gmail.png' %}" alt=""></a>
-        <a href="#" class = "sosial-media-icon"><img src="{% static 'Icons/facebook.png' %}" alt=""></a>
-        <a href="#" class = "sosial-media-icon"><img src="{% static 'Icons/twitter.png' %}" alt=""></a>
-        <a href="#" class = "sosial-media-icon"><img src="{% static 'Icons/instagram.png' %}" alt=""></a>
+        <a href="mailto:Contact.linkerglobal@gmail.com" class = "sosial-media-icon"><img src="{% static 'Icons/gmail.png' %}" alt=""></a>
+        <!-- <a href="#" class = "sosial-media-icon"><img src="{% static 'Icons/facebook.png' %}" alt=""></a>
+        <a href="#" class = "sosial-media-icon"><img src="{% static 'Icons/twitter.png' %}" alt=""></a> -->
+        <a target="_blank" href="https://www.instagram.com/linkerglobal/" class = "sosial-media-icon"><img src="{% static 'Icons/instagram.png' %}" alt=""></a>
     </div>
 
 </section>
@@ -181,7 +202,12 @@
 <script src = "{% static 'Js/header.js' %}"></script>
 <script src = "{% static 'Js/categories.js' %}"></script>
 <script src = "{% static 'Js/integration.js' %}"></script>
-<script src = "{% static  'Js/cardEvents.js' %}"></script>
+<!-- <script>
+    function changeFavorite(e){
+    if(e.getAttribute("src") == "{% static 'Icons/favorite_border.svg' %}") e.setAttribute("src"," {% static 'Icons/favorite.svg' %}");
+    else e.setAttribute("src","{% static 'Icons/favorite_border.svg' %}");
+}
+</script> -->
 <script src = "{% static 'Js/selectDropdown.js' %}"></script>
 <script src = "{% static 'Js/main.js' %}"></script>
 <!-- jquery -->
@@ -205,43 +231,106 @@
         color: white;
         border: 1px #25D366 solid;
     }
+    .fbchange{
+        background-color:  #1A4789;
+        color: white;
+        border: 1px  #1A4789 solid;
+    }
+
+    .instachange{
+        background-color: #BC3081;
+        border: 1px #BC3081 solid;
+        color: white;
+    }
+
+    .youtubechange{
+        background-color: #FF0000;
+        color: white;
+        border: 1px #FF0000 solid;
+    }
+
+    .tiktokchange{
+        background-color: #000000;
+        color: white;
+        border: 1px #000000 solid;
+    }
 
 </style>
 <script>
-//     $('#Telegram').change(function(){
-//     if (this.checked)  {
-//         $('label[for=Telegram]').removeClass("telegram");
-//         $('label[for=Telegram]').addClass("tgchange");
-//         $('label[for=whatsapp]').removeClass("whatsappchang");
-//         $('label[for=whatsapp]').addClass("whatsapp");
-//     } 
 
-    
-// });
-
-// $('#whatsapp').change(function(){
-//     if($(this).is(":checked")) {
-//         $('label[for=whatsapp]').removeClass("whatsapp");
-//         $('label[for=whatsapp]').addClass("whatsappchange");
-//         $('label[for=Telegram]').removeClass("tgchange");
-//         $('label[for=Telegram]').addClass("telegram");
-//     };
-
-
-    
-// });
 
 jQuery(function($){
     $("#Telegram").click(function () {
         $('label[for=Telegram]').toggleClass('tgchange', this.checked);
-        $('label[for=Telegram]').removeClass('telegram');
+        $('.axtar_bbttn').css('display', 'block');
     });
 
+    $("#Whatsapp").click(function () {
+        $('label[for=Whatsapp]').toggleClass('whatsappchange', this.checked);
+        $('.axtar_bbttn').css('display', 'block');
+    });
 
+    $("#Facebook").click(function () {
+        $('label[for=Facebook]').toggleClass('fbchange', this.checked);
+        $('.axtar_bbttn').css('display', 'block');
+    });
+    $("#Instagram").click(function () {
+        $('label[for=Instagram]').toggleClass('instachange', this.checked);
+        $('.axtar_bbttn').css('display', 'block');
+    });
+
+    $("#Youtube").click(function () {
+        $('label[for=Youtube]').toggleClass('youtubechange', this.checked);
+        $('.axtar_bbttn').css('display', 'block');
+    });
+    $("#TikTok").click(function () {
+        $('label[for=TikTok]').toggleClass('tiktokchange', this.checked);
+        $('.axtar_bbttn').css('display', 'block');
+    });
+    $('.categoryclass').click(function(){
+        var check = $(this).find('input');
+      
+        if (check.is(":checked")){
+         
+            $(this).find('label').css('color', 'red');
+            $('.axtar_bbttn').css('display', 'block');
+        } else{
+            $(this).find('label').css('color', 'black');
+        }
+            
+      
+        
+    
+    });
+
+    $('.search-input').on('input', function() {
+    if (this.value.trim().length >= 1) {
+    // call your function here
+    $('.axtar_bbttn').css('display', 'block');  
+        }
+        });
+
+    
 
 })
 
 
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 </html>

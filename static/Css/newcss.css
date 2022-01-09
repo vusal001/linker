@@ -15,16 +15,27 @@
 }
 
 
+.checkboxs::-webkit-scrollbar {
+    display: none;
+}
 
 
+.label_radio:hover{
+    text-decoration: none;
+}
 
 .label_radio{
-    padding: 5px 10px;
+    padding: 3px 10px;
     font-size: 12px;
     border-radius: 3px;
-    
+    text-decoration: none;
+
     margin-left: 3px;
     
+}
+
+.mt-5{
+    margin-top: 10px !important;
 }
 
 .list-unstyled li a:hover{
@@ -41,7 +52,32 @@
     border: 1px #25D366 solid;
 }
 
+.facebook{
+    color:  #1A4789;
+    border: 1px  #1A4789 solid;
+}
+.tiktok{
+    color: #000000;
+    border: 1px #000000 solid;
+}
 
+.checkboxs input{
+    display: none;
+}
+
+.checkboxs{
+    justify-content: center;
+}
+
+.youtube{
+    color: #FF0000;
+    border: 1px #FF0000 solid;
+
+}
+.instagram{
+    color: #BC3081;
+    border: 1px #BC3081 solid;
+}
 
 .posts a{
     margin-top: 10px !important;
@@ -49,6 +85,7 @@
 
 .posts h2{
     padding-top: 5px;
+    font-size: 16px;
 }
 
 .top50 :hover{
@@ -80,7 +117,7 @@
     
 
 .social_all{
-    margin-top: 50px;
+    margin-top: 0px;
 }
 
 
@@ -94,10 +131,34 @@
         bottom: 90% !important;
     }
 
+
+    .header{
+        height: 103px;
+        margin-top: 16px;
+    }
+
+    #our-actions .actions{
+        flex-direction: row;
+    }
+
+    .aktivlik_div .text_color{
+        font-size: 18px !important;
+    }
+
+    .aktivlik_img{
+        width: 5rem !important;
+    }
+
+    .checkboxs{
+        overflow: auto;
+        justify-content: flex-start;
+        max-width: 95%;
+        margin: auto;
+    }
     .social_all{
         order: 4 !important;
         width: 100%;
-        margin-top: 0px;
+        margin-top: 5px;
     }
 
 

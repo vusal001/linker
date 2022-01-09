@@ -14,23 +14,22 @@ from post.models import Post
 
 
 def loginview(request):
+    form = LoginForm(request.POST or None)
     if request.user.is_authenticated:
         return HttpResponseRedirect(reverse('home'))
 
-    next= ""
-    if request.GET:
-        next= request.GET['next']
 
-    form = LoginForm(request.POST or None)
+
+    
     if form.is_valid():
-        user = authenticate(username=form.cleaned_data['username'], password=form.cleaned_data['parol'])
-        if user:
-            login(request, user)
-            if next:
-                return redirect('post_create')
-            return redirect('home')
-        else:
-            messages.error(request, 'Daxil etdiyiniz şifrə və ya telefon nömrəsi yanlışdır. Zəhmət olmasa bir daha sınayın.')
+        
+        username= form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        login(request, user)
+                
+        return redirect('home')
+        
 
 
 
@@ -45,22 +44,29 @@ def loginview(request):
 def registerview(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect(reverse('home'))
-    form = RegisterForm(request.POST or None)
+    
 
+
+    form = RegisterForm(request.POST or None)
+    
     next= ""
     if request.GET:
-        next= request.GET['next']
+        next = request.GET['next']
+
 
     if form.is_valid():
         user= form.save(commit=False)
         password= form.cleaned_data.get('password1')
         user.set_password(password)
         user.save()
-        new_user= authenticate(username=user.username, password=password, first_name=user.first_name)
+        new_user= authenticate(username=user.username, password=password)
         login(request, new_user)
-        if next:
-            return redirect('post_create')
-        return redirect('home')
+        if next=='':
+            return HttpResponseRedirect(reverse('home'))
+        else:
+            return HttpResponseRedirect(reverse('post_create'))
+    
+        
 
     contex = {
         'form': form,

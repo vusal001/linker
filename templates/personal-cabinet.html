@@ -5,7 +5,14 @@
 <link rel="stylesheet" href="{% static 'Scss/personal-cabinet.css' %}">
 <!-- <link rel="stylesheet" href="{% static 'Scss/animation.css' %}"> -->
 
-    
+    <style>
+        .header{
+            height: 65px !important;
+        }
+        .search{
+            visibility: hidden;
+        }
+    </style>
 
         <section id="personal-cabinet">
             <div class = "d-flex align-items-center ml-0 ml-md-4 mt-4 mt-md-0 my-5 justify-content-center">
@@ -15,15 +22,7 @@
             </div>
 
        
-            <div class="d-flex flex-column flex-sm-row my-4">
-
-                
-                <!-- <a href = "{% url 'post_create' %}" class = "h3 d-flex align-items-center justify-content-center bg-danger text-white shadow w-100 m-0 m-sm-3 my-3 rounded-lg p-3 cursor-pointer" style="background-color: 6679fb !important;">Kitab yerləşdir</a>  -->
-
-            </div>
-
-            
-            <div class="row border border-left-0 border-right-0 border-top-0 pb-3 mb-5 mt-5" style = 'border-color: var(--thirdColor);'>
+           
                 <div class="col-12 d-flex align-items-end">
                     
                     <h3 class="section-title font-weight-bolder ml-3 text-danger" style="color: #6679fb !important;">Elanlarım</h3>
@@ -37,36 +36,48 @@
                     {% if post.preminium == True %}
                     <div class="premium">Premium</div>
                     {% endif %}
-                    {% if post.linktype == 'Whatsapp' %}
-                    <div class="socialmediaicn" style="position: absolute; right: 17px; top: 10px; height: 28px; width: 28px;"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" width="100%" height="100%"/></div>
-                    {% elif post.linktype == 'Telegram' %}
-                    <div class="socialmediaicn" style="position: absolute; right: 17px; top: 10px; height: 28px; width: 28px;"><img src="https://img.icons8.com/color/48/000000/telegram-app--v1.png" width="100%" height="100%"/></div>
-                    {% endif %}
+                   
 
                     <div class="row no-gutters">
                         <div class="" style="border-radius: 50% !important; height: 100px; width: 100px; padding: 9px; padding-left: 15px;">
+                            {% if post.image %}
                             <img src="{{ post.image.url }}"  style="border-radius: 50% !important; object-fit: cover; width: 100%; height: 100%;"  class="card-img rounded shadow" alt="...">
-                        </div>
+                            {% else %}
+                            <img src="{% static 'Icons/defaultimg.jpeg' %}"  style="border-radius: 50% !important; object-fit: cover; width: 100%; height: 100%;"  class="card-img rounded shadow" alt="...">
+                            {% endif %}                        </div>
                         <div class="col-8">
                             <div class="card-body" style="height: 100%;">
                                 <p class="blockquote text_color m-0 mb-1"><span style="color: black;">#{{ post.category.title }}</span></p>
                                 <h2 style="font-weight: 700;">{{ post.title }}</h2>
                                 <div  style="display: flex;
                                 justify-content: space-between;
+                                position: absolute;
                                 width: 100%;
                                 height: 13px;
-                                margin-top: 15px;">
+                                margin-top: -2px;">
+
+<div class="row no-gutters p-2">
+    <div class="col-6 text-center px-3">
+        <a style="margin-right: 17px;" href = "{% url 'update' post.id %}" class="btn btn-lg btn-block btn-success text-white px-5" onclick = "showCabinetBook()">
+            Düzəlt</a>
+    </div>
+    <div class="col-6 text-center px-3">
+        <div class="btn btn-lg btn-block btn-danger px-5">
+        <a style="text-decoration: none; color: white;" href="{% url 'delete' post.id %}">Sil</a>   
+        </div>
+    </div>
+</div>
                                     
-                                        <img onclick="showCabinetBook()" src="{% static 'Icons/settings.svg' %}" alt="" class="icons-style m-0 mr-2 cursor-pointer" style = "width: 1.8rem;" onclick = "showCabinetBook()">
+                                        <!-- <img onclick="showCabinetBook()" src="{% static 'Icons/settings.svg' %}" alt="" class="icons-style m-0 mr-2 cursor-pointer" style = "width: 1.8rem;" onclick = "showCabinetBook()"> -->
                                        
                                     
                                     
-                                    <div class="col-6 justify-content-end d-flex align-items-center pt-3" style="padding-right: 0 !important; padding-top: 5px !important;">
+                                    <!-- <div class="col-6 justify-content-end d-flex align-items-center pt-3" style="padding-right: 0 !important; padding-top: 5px !important;">
                                         <span style="font-size: 15px; float: right;">{{ post.like }}</span>
                                         <img src="{% static 'Icons/favorite_border.svg' %}" alt="" class="mr-2 cursor-pointer" style = "width: 2.2rem" onclick = "changeFavorite(this)">
                                         
                                         
-                                    </div>
+                                    </div> -->
                                     
                                 </div>
                             </div>
@@ -75,14 +86,18 @@
                     
                 </div>
 
-                <div class="cabinet-book-dropdown" style="z-index: 100000;">
+                <!-- <div class="cabinet-book-dropdown" style="z-index: 100000;">
                     <img src="{% static 'Icons/close.svg' %}" alt="" class = "close-cabinet-dropdown cursor-pointer position-absolute animation-close-button" onclick = "showCabinetBook()">
                     <div class="book-dropdown-bg" onclick = "showCabinetBook()"></div>
-                    <!-- book card start -->
+                    
                     <div class="card mb-3 border-0 shadow" style="max-width: 40rem;">
                         <div class="row no-gutters">
                             <div class="col-4 p-4">
-                                <img src="{{ post.image.url }}" class="card-img rounded shadow" alt="...">
+                            {% if post.image %}
+                            <img src="{{ post.image.url }}"  style="border-radius: 50% !important; object-fit: cover; width: 100%; height: 100%;"  class="card-img rounded shadow" alt="...">
+                            {% else %}
+                            <img src="{% static 'Icons/defaultimg.jpeg' %}"  style="border-radius: 50% !important; object-fit: cover; width: 100%; height: 100%;"  class="card-img rounded shadow" alt="...">
+                            {% endif %} 
                             </div>
                             <div class="col-8">
                                 <div class="card-body">
@@ -100,15 +115,15 @@
                                     Düzəlt</a>
                             </div>
                             <div class="col-6 text-center px-3">
-                                <div class="btn btn-lg btn-block btn-danger px-5" onclick = "showCabinetBook()">
+                                <div class="btn btn-lg btn-block btn-danger px-5">
                                 <a style="text-decoration: none; color: white;" href="{% url 'delete' post.id %}">Sil</a>   
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- book card end -->
                     
-                </div>
+                    
+                </div> -->
           
             {% endfor %}
                 
@@ -121,7 +136,7 @@
 
 
 
-    <section class="footer text-center p-5" style = "background: var(--secondColor);">
+    <!-- <section class="footer text-center p-5" style = "background: var(--secondColor);">
 
         <div class="d-flex align-items-center w-100 justify-content-center">
             <img src="../Icons/copyright.svg" alt="" class = "pr-2" style = "width: 2rem;">
@@ -135,14 +150,38 @@
             <a href="#" class = "sosial-media-icon"><img src="../Icons/instagram.png" alt=""></a>
         </div>
 
-    </section>
+    </section> -->
     
     
     
 
 
     
-   
+   <script>
+       // seting iconuna click zamani
+
+// function showCabinetBook(){
+//     let cabinetBookDropdown = document.querySelector(".cabinet-book-dropdown");
+//     cabinetBookDropdown.classList.toggle("cabinet-book-dropdown-active");
+// }
+
+
+// // pen e click zamani ad soyad yazma aktiv olmasi
+
+// function falseDisabled(e){
+//     e.parentElement.children[0].disabled = false;
+//     e.parentElement.children[0].focus();
+//     var val = e.parentElement.children[0].value; //store the value of the element
+//     e.parentElement.children[0].value = ''; //clear the value of the element
+//     e.parentElement.children[0].value = val;
+//     e.parentElement.children[2].style.display = "block";
+// }
+
+// function trueDisabled(e){
+//     e.parentElement.children[0].disabled = true;
+//     e.parentElement.children[2].style.display = "none";
+// }
+//    </script>
     
     <div class="align-items-center justify-content-center cursor-pointer bg-danger p-3 rounded-lg shadow go-to-back" onclick = " goToBack()">
         <img src="{% static 'Icons/up-arrow.svg' %}" alt="" class = "icons-style">

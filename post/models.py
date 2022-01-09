@@ -1,5 +1,5 @@
 from django.db import models
-
+from django_resized import ResizedImageField
 from django.utils.timezone import now
 from django.contrib.auth.models import User
 
@@ -23,14 +23,19 @@ class Post(models.Model):
     TYPE = (
         ('Whatsapp', 'Whatsapp'),
         ('Telegram', 'Telegram'),
-        ('Facebook', 'Facebook')
+        ('Facebook', 'Facebook'),
+        ('Youtube', 'Youtube'),
+        ('TikTok', 'TikTok'),
+        ('Instagram', 'Instagram'),
     )
     
-    linktype = models.CharField(choices=TYPE ,max_length=100, verbose_name='Platforma')
+    linktype = models.CharField(choices=TYPE ,max_length=100, verbose_name='Platforma', blank=True, null=True)
 
-    image = models.FileField(verbose_name='Şəkil')
+    image = ResizedImageField(size=[1280, 720], quality=80, verbose_name="Sekil", blank=True, null=True, force_format='JPEG')
 
-    like = models.IntegerField(verbose_name="Like sayı", default=0, blank=True, null=True)
+    sssss = models.IntegerField(verbose_name="Like sayı", default=0, blank=True, null=True)
+
+    liked = models.ManyToManyField(User, blank=True, related_name='post_like')
 
     views = models.IntegerField(verbose_name="Baxış sayı", default=0, blank=True, null=True)
 
@@ -42,5 +47,25 @@ class Post(models.Model):
 
     def __str__(self) -> str:
         return self.title
+
+
+
+
+
+
+LIKE_CHOICES = (
+    ('Like', 'Like'),
+    ('Unlike', 'Unlike'),
+)
+
+
+
+class Like(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    value = models.CharField(choices=LIKE_CHOICES, max_length=8)
+
+
+
 
 # Create your models here.

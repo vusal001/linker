@@ -61,7 +61,7 @@
             <div class="row border border-left-0 border-right-0 border-top-0 pb-3 mb-5" style = 'border-color: var(--thirdColor);'>
                 <div class="col-12 d-flex align-items-end">
                     <img src="{% static 'Icons/icon2.png' %}" alt="" class="icons-style ml-2">
-                    <h3 class="section-title font-weight-bolder ml-3 text_color" style="margin-top: 10px; color: rgb(102, 121, 251) !important;">Top50</h3>
+                    <h3 class="section-title font-weight-bolder ml-3 text_color" style="margin-top: 10px; color: rgb(102, 121, 251) !important;">TOP 50</h3>
                 </div>
             </div>
 
@@ -74,11 +74,9 @@
                     {% if post.preminium == True %}
                     <div class="premium">Premium</div>
                     {% endif %}
-                    {% if post.linktype == 'Whatsapp' %}
+                    
                     <div class="socialmediaicn" style="position: absolute; right: 17px; top: 10px; height: 28px; width: 28px;"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" width="100%" height="100%"/></div>
-                    {% elif post.linktype == 'Telegram' %}
-                    <div class="socialmediaicn" style="position: absolute; right: 17px; top: 10px; height: 28px; width: 28px;"><img src="https://img.icons8.com/color/48/000000/telegram-app--v1.png" width="100%" height="100%"/></div>
-                    {% endif %}
+                    
 
                     <div class="row no-gutters">
                         <div class="" style="border-radius: 50% !important; height: 100px; width: 100px; padding: 9px; padding-left: 15px;">
@@ -91,11 +89,7 @@
                                 <div class="row" style="display: flex; justify-content: space-between; ">
                                     <div></div>
 
-                                    <div onclick="location.href='{% url 'like' post.id %}'" class="col-6 justify-content-end d-flex align-items-center pt-3" style="padding-right: 0 !important; padding-top: 5px !important;">
-                                        <span style="font-size: 15px; padding-right: 5px;">{{ post.like }}</span>
-                                        <img src="{% static 'Icons/favorite_border.svg' %}" alt="" class="mr-2 cursor-pointer" style = "width: 2.2rem" onclick = "changeFavorite(this)">
-                                        
-                                    </div>
+                                
                                 </div>
                             </div>
                         </div>

@@ -3,5 +3,5 @@ from .models import *
 
 admin.site.register(Post)
 admin.site.register(Category)
-
+admin.site.register(Like)
 # Register your models here.

@@ -11,7 +11,7 @@
             
             <div class="row border border-left-0 border-right-0 border-top-0 pb-3 mb-5" style = 'border-color: var(--thirdColor);'>
                 <div class="col-12 d-flex align-items-end">
-                    <img src="{% static 'Icons/import_contacts.svg' %}" alt="" class="icons-style ml-2">
+                   
                     {% if request.GET.category %}
                     <h3 class="section-title font-weight-bolder ml-3 text_color" style="margin-top: 10px; color: #6679fb !important;">{{ request.GET.category }}</h3>
                     {% else %}
@@ -23,7 +23,7 @@
 
             <div class="books d-flex justify-content-around flex-wrap posts" >
                 {% if not post %}
-                <img src="{% static 'Icons/notresult.png' %}" alt="" width="50%" height="100%">
+                <img src="{% static 'Icons/notresult.png' %}" alt="" width="60%" height="100%">
                  
                 
             </div>
@@ -34,27 +34,43 @@
                     {% if post.preminium == True %}
                     <div class="premium">Premium</div>
                     {% endif %}
+                   
                     {% if post.linktype == 'Whatsapp' %}
                     <div class="socialmediaicn" style="position: absolute; right: 17px; top: 10px; height: 28px; width: 28px;"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" width="100%" height="100%"/></div>
                     {% elif post.linktype == 'Telegram' %}
                     <div class="socialmediaicn" style="position: absolute; right: 17px; top: 10px; height: 28px; width: 28px;"><img src="https://img.icons8.com/color/48/000000/telegram-app--v1.png" width="100%" height="100%"/></div>
+                    {% elif post.linktype == 'Instagram' %}
+                    <div class="socialmediaicn" style="position: absolute; right: 17px; top: 10px; height: 28px; width: 28px;"><img src="{% static 'Icons/instalogo.png' %}" width="100%" height="100%"/></div>
+                    {% elif post.linktype == 'TikTok' %}
+                    <div class="socialmediaicn" style="position: absolute; right: 17px; top: 10px; height: 28px; width: 28px;"><img src="https://img.icons8.com/material/50/000000/tiktok.png" width="100%" height="100%"/></div>
+                    {% elif post.linktype == 'Facebook' %}                                                                        
+                    <div class="socialmediaicn" style="position: absolute; right: 17px; top: 10px; height: 28px; width: 28px;"><img src="https://img.icons8.com/color/48/000000/facebook-new.png" width="100%" height="100%"/></div>
+                    {% elif post.linktype == 'Youtube' %}
+                    <div class="socialmediaicn" style="position: absolute; right: 17px; top: 10px; height: 28px; width: 28px;"><img src="{% static 'Icons/youtubeicon.png' %}" width="100%" height="100%"/></div>
+
                     {% endif %}
 
+                    <!-- <div class="socialmediaicn" style="position: absolute; right: 17px; top: 10px; height: 28px; width: 28px;"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" width="100%" height="100%"/></div> -->
+             
                     <div class="row no-gutters">
                         <div class="" style="border-radius: 50% !important; height: 100px; width: 100px; padding: 9px; padding-left: 15px;">
+                            {% if post.image %}
                             <img src="{{ post.image.url }}"  style="border-radius: 50% !important; object-fit: cover; width: 100%; height: 100%;"  class="card-img rounded shadow" alt="...">
-                        </div>
+                            {% else %}
+                            <img src="{% static 'Icons/defaultimg.jpeg' %}"  style="border-radius: 50% !important; object-fit: cover; width: 100%; height: 100%;"  class="card-img rounded shadow" alt="...">
+                            {% endif %}                        </div>
                         <div class="col-8">
                             <div class="card-body" style="height: 100%;">
                                 <p class="blockquote text_color m-0 mb-1"><span style="color: black;">#{{ post.category.title }}</span></p>
                                 <h2 style="font-weight: 700;">{{ post.title }}</h2>
-                                <div class="row" style="display: flex; justify-content: space-between; ">
+                                <!-- <div class="row" style="display: flex; justify-content: space-between; ">
                                     <div></div>
                                     <div class="col-6 justify-content-end d-flex align-items-center pt-3" style="padding-right: 0 !important; padding-top: 5px !important;">
+                                        <span style="font-size: 15px; padding-right: 5px;">{{ post.like }}</span>
                                         <img src="{% static 'Icons/favorite_border.svg' %}" alt="" class="mr-2 cursor-pointer" style = "width: 2.2rem" onclick = "changeFavorite(this)">
                                         
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

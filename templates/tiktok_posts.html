@@ -3,25 +3,72 @@
 {% load static %}
 {% block menu %}
         
+ <!-- categories -->
+ <section id="categories" class = "mb-5">
+            
+    <!-- <div class="row border border-left-0 border-right-0 border-top-0 pb-3 mb-5" style = 'border-color: var(--thirdColor);'>
+        <div class="col-12 d-flex align-items-end">
+            <img src="Icons/widgets-24px.svg" alt="" class = "icons-style ml-2">
+            <h3 class="section-title font-weight-bolder ml-3 text_color">Kateqoriyalar</h3>
+        </div>
+    </div> -->
 
+    <div class="row mt-5 d-flex justify-content-around align-items-center">
+
+        <div class="col-1 m-0 p-0 d-sm-flex d-none align-items-center justify-content-center">
+            <img src="{% static 'Icons/keyboard_arrow_left-24px.svg' %}" alt="" class = "icons-style cursor-pointer" onclick = "categoriyaScrollLeft()"> 
+        </div>
+
+        <div class="col-12 col-sm-10 d-flex m-0 p-0 align-items-center categories">
+            <ul class = "list-unstyled d-flex m-0 w-100 h3 categories-list">
+                <!-- <li>
+                    <a class="top50" href="{% url 'top50' %}" style="text-decoration: none; padding: 5px; font-size: 15px; background-color: red; color: white; ">Top 50</a>
+                </li> -->
+                {% for cat in categories %}
+               
+                    <li><a href="/post/tiktok_posts/?category={{ cat.title }}" style="text-decoration: none; color: black;">{{ cat.title }}</a></li>
+
+                {% endfor %}
+                
+           
+                
+            </ul>
+        </div>
+
+        <div class="col-1 m-0 p-0 d-sm-flex d-none align-items-center justify-content-center">
+            <img src="{% static 'Icons/keyboard_arrow_right-24px.svg' %}" alt="" class = "icons-style cursor-pointer" onclick = "categoriyaScrollRight()"> 
+        </div>
+
+    </div>
+    
+</section>
         
-
-        <!-- <div class="no-result">
-            Nəticə yoxdur
-        </div> -->
-
+    
         <!-- en son yuklenenler -->
         <section id="most-loaded-books">
-             
+            
             <div class="row border border-left-0 border-right-0 border-top-0 pb-3 mb-5" style = 'border-color: var(--thirdColor);'>
                 <div class="col-12 d-flex align-items-end">
-                    <img src="{% static 'Icons/icon2.png' %}" alt="" class="icons-style ml-2">
-                    <h3 class="section-title font-weight-bolder ml-3 text_color" style="margin-top: 10px;">Premium elanlar</h3>
+                   
+                    {% if request.GET.category %}
+                    <h3 class="section-title font-weight-bolder ml-3 text_color" style="margin-top: 10px; color: #6679fb !important;">{{ request.GET.category }}</h3>
+                    {% else %}
+                    <h3 class="section-title font-weight-bolder ml-3 text_color" style="margin-top: 10px; color: #6679fb !important;">TikTok
+                    
+                    </h3>
+                    {% endif %}
+
                 </div>
             </div>
 
             <div class="books d-flex justify-content-around flex-wrap posts" >
-                {% for post in premium %}
+                {% if not post %}
+                <img src="{% static 'Icons/notresult.png' %}" alt="" width="60%" height="100%">
+                 
+                
+            </div>
+            {% endif %}
+                {% for post in post %}
                 <a target="_blank" href="{{ post.link }}" style="color: black; text-decoration: none; height: 105px;">
                 <div class="card mb-5 border-5 shadow" style="max-width: 36rem; max-height: 105px !important; border-radius: 15px;">
                     {% if post.preminium == True %}
@@ -42,26 +89,28 @@
                     <div class="socialmediaicn" style="position: absolute; right: 17px; top: 10px; height: 28px; width: 28px;"><img src="{% static 'Icons/youtubeicon.png' %}" width="100%" height="100%"/></div>
 
                     {% endif %}
-                  
+                   
                     <!-- <div class="socialmediaicn" style="position: absolute; right: 17px; top: 10px; height: 28px; width: 28px;"><img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" width="100%" height="100%"/></div> -->
-                    
+             
                     <div class="row no-gutters">
                         <div class="" style="border-radius: 50% !important; height: 100px; width: 100px; padding: 9px; padding-left: 15px;">
                             {% if post.image %}
                             <img src="{{ post.image.url }}"  style="border-radius: 50% !important; object-fit: cover; width: 100%; height: 100%;"  class="card-img rounded shadow" alt="...">
                             {% else %}
                             <img src="{% static 'Icons/defaultimg.jpeg' %}"  style="border-radius: 50% !important; object-fit: cover; width: 100%; height: 100%;"  class="card-img rounded shadow" alt="...">
-                            {% endif %}
-                        </div>
+                            {% endif %}                        </div>
                         <div class="col-8">
                             <div class="card-body" style="height: 100%;">
                                 <p class="blockquote text_color m-0 mb-1"><span style="color: black;">#{{ post.category.title }}</span></p>
                                 <h2 style="font-weight: 700;">{{ post.title }}</h2>
-                                <div class="row" style="display: flex; justify-content: space-between; ">
+                                <!-- <div class="row" style="display: flex; justify-content: space-between; ">
                                     <div></div>
-
-                                
-                                </div>
+                                    <div class="col-6 justify-content-end d-flex align-items-center pt-3" style="padding-right: 0 !important; padding-top: 5px !important;">
+                                        <span style="font-size: 15px; padding-right: 5px;">{{ post.like }}</span>
+                                        <img src="{% static 'Icons/favorite_border.svg' %}" alt="" class="mr-2 cursor-pointer" style = "width: 2.2rem" onclick = "changeFavorite(this)">
+                                        
+                                    </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -76,7 +125,29 @@
        
         </section>
 
-       
+        <!-- aktivlik -->
+        <!-- <section id="our-actions" style = "background: var(--secondColor);">
+
+            <div class="actions my-5 py-5 d-flex justify-content-center">
+
+                <div class=" border-0 mx-3">
+                    <div class="card-body text-center">
+                      <img src="{% static 'Icons/get_app.svg' %}" alt="" style = "width: 7rem;">
+                      <p class="font-weight-bold text-white h5 m-2">Yerləşdirilən elanlar</p>
+                      <p class="text_color font-weight-bolder" style = "font-size: 3.2rem;">25.4500</p>
+                    </div>
+                </div>
+
+                
+                <!-- <div class="card border-0 mx-3">
+                    <div class="card-body text-center">
+                        <img src="Icons/shopping_basket.svg" alt="" style = "width: 7rem;">
+                        <p class="font-weight-bold text-white h5 m-2">Satılan kitablar</p>
+                        <p class="text_color font-weight-bolder" style = "font-size: 3.2rem;">12.423</p>
+                    </div>
+                </div> -->
+                
+            
         <!-- elaqe -->
         <!-- <section id="contact">
                 
